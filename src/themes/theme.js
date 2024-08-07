@@ -1,30 +1,33 @@
 // src/theme.js
-import { createTheme } from '@mui/material/styles';
+import {createTheme} from '@mui/material/styles';
 
 const colors = {
-    primary: '#1c595f',
-    secondary: '#a6091b'
+    primary: '#F58025', // Orange
+    secondary: '#8BAF1F', // Dark Green
+    dark: '#222222', // Dark Blue/Black
+    light: '#F7F7F7', // Light Grey
+    white: '#ffffff' // White
 };
 
 const theme = createTheme({
     palette: {
         primary: {
             main: colors.primary,
-            light: '#c96e58',
-            dark: '#6f2c16',
-            contrastText: '#ffffff',
+            light: '#FFA05A', // Lighter shade of orange
+            dark: '#B35300', // Darker shade of orange
+            contrastText: colors.white,
         },
         secondary: {
             main: colors.secondary,
-            light: '#a0897b',
-            dark: '#4e3b35',
-            contrastText: '#ffffff',
+            light: '#B2D153', // Lighter shade of dark green
+            dark: '#597B00', // Darker shade of dark green
+            contrastText: colors.white,
         },
         error: {
             main: '#f44336',
             light: '#e57373',
             dark: '#d32f2f',
-            contrastText: '#ffffff',
+            contrastText: colors.white,
         },
         warning: {
             main: '#ff9800',
@@ -36,7 +39,7 @@ const theme = createTheme({
             main: '#2196f3',
             light: '#64b5f6',
             dark: '#1976d2',
-            contrastText: '#ffffff',
+            contrastText: colors.white,
         },
         success: {
             main: '#4caf50',
@@ -45,11 +48,10 @@ const theme = createTheme({
             contrastText: 'rgba(0, 0, 0, 0.87)',
         },
         background: {
-            default: '#fff',
-            paper: '#eee'
+            default: colors.light,
+            paper: colors.white,
         }
     },
 });
-
 
 export default theme;

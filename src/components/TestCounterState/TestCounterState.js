@@ -6,15 +6,15 @@ import Button from "@mui/material/Button";
 
 const CounterComponent = observer(() => {
     const counterStore = useCounterStore();
-    console.log(counterStore)
+    // console.log(counterStore)
     const increment = () => {
         counterStore.increment();
-        console.log(counterStore.counter)
+        // console.log(counterStore.counter)
     }
     //a function to decrement the store
     const decrement = () => {
         counterStore.decrement();
-        console.log(counterStore.counter)
+        // console.log(counterStore.counter)
     }
 
     return (

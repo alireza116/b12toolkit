@@ -1,20 +1,44 @@
-
 import {Container, Stack} from '@mui/material';
 import NavBar from '../components/NavBar/NavBar';
-import useB12Theme from "@/hooks/useB12Theme";
-const Layout = ({ children }) => {
-    const theme = useB12Theme();
-    console.log(theme);
-    return (
-        <Stack direction='column' sx={{height: '100%', backgroundColor: theme.palette.background.paper}}>
+import {useTheme} from "@mui/material/styles";
+import {useEffect, useRef, useState} from "react";
 
-            <NavBar></NavBar>
-            <Container sx={{flexGrow: 1}}>
+const Layout = ({children}) => {
+    const theme = useTheme();
+    const navBarRef = useRef(null);
+    const [navBarHeight, setNavBarHeight] = useState(0);
+    console.log(navBarHeight)
+    useEffect(() => {
+        const handleResize = () => {
+            console.log("test");
+            if (navBarRef.current) {
+                setNavBarHeight(navBarRef.current.offsetHeight);
+            }
+        };
+
+        // Set initial height
+        handleResize();
+
+        // Update height on window resize
+        window.addEventListener('resize', handleResize);
+
+        // Cleanup event listener on component unmount
+        return () => {
+            window.removeEventListener('resize', handleResize);
+        };
+    }, []);
+
+    return (
+        <Stack direction='column' sx={{height: '100vh', backgroundColor: theme.palette.background.paper}}>
+            <NavBar ref={navBarRef}/>
+       
+            <Container maxWidth={false}
+                       sx={{flexGrow: 1, width: '100%', height: `calc(100vh - ${navBarHeight}px)`, maxWidth: 'none'}}
+                       className="p-0">
                 {children}
             </Container>
         </Stack>
-
     );
 }
 
-export default Layout
+export default Layout;
