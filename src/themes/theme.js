@@ -10,12 +10,16 @@ const colors = {
 };
 
 const theme = createTheme({
+    typography: {
+        fontFamily: 'Helvetica',
+        color: colors.dark,
+    },
     palette: {
         primary: {
             main: colors.primary,
             light: '#FFA05A', // Lighter shade of orange
             dark: '#B35300', // Darker shade of orange
-            contrastText: colors.white,
+            contrastText: colors.dark,
         },
         secondary: {
             main: colors.secondary,
