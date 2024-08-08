@@ -5,9 +5,8 @@ const PageContent = () => {
     const theme = useTheme()
     return (
         <Box className="w-full">
-            <Typography variant={"h4"} color={theme.palette.text.primary}>qwe</Typography>
-            <Typography variant={"h4"} color={theme.palette.text.primary}>qwe</Typography>
-            <Typography variant={"h4"} color={theme.palette.text.primary}>qwe</Typography>
+            <Typography variant={"h4"} color={theme.palette.text.primary}>Foundations Content Goes Here</Typography>
+
 
         </Box>
     );

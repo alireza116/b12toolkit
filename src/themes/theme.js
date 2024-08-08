@@ -14,6 +14,15 @@ const theme = createTheme({
         fontFamily: 'Helvetica',
         color: colors.dark,
     },
+    components: {
+        MuiBox: {
+            styleOverrides: {
+                root: {
+                    border: '8px solid grey',
+                },
+            },
+        },
+    },
     palette: {
         primary: {
             main: colors.primary,

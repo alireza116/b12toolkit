@@ -31,7 +31,6 @@ const Layout = ({children}) => {
     return (
         <Stack direction='column' sx={{height: '100vh', backgroundColor: theme.palette.background.paper}}>
             <NavBar ref={navBarRef}/>
-       
             <Container maxWidth={false}
                        sx={{flexGrow: 1, width: '100%', height: `calc(100vh - ${navBarHeight}px)`, maxWidth: 'none'}}
                        className="p-0">

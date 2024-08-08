@@ -1,8 +1,6 @@
 'use client'
-import RiskComponent from "@/components/TestRiskState/TestRiskState";
-import Card from "@/components/Card/Card";
 import {useTheme} from "@mui/material/styles";
-import {Box, Stack, Tab, Typography} from "@mui/material";
+import {Box, Stack, Tab} from "@mui/material";
 import TabContext from '@mui/lab/TabContext';
 import {useState} from "react";
 import {TabList} from "@mui/lab";
@@ -19,6 +17,8 @@ import AiRisks from "@/pages/contentPages/AiRisks";
 import StudentCoach from "@/pages/contentPages/StudentCoach";
 import Onboarding from "@/pages/contentPages/Onboarding";
 import Ongoing from "@/pages/contentPages/Ongoing";
+import TaskEditor from "@/components/TaskEditor/TaskEditor";
+
 function a11yProps(index) {
     return {
         id: `simple-tab-${index}`,
@@ -36,26 +36,30 @@ const HomePage = () => {
 
 
     const theme = useTheme()
-    const bgColor = theme.palette.background.default;
-    const sideWidth = 300
+    const bgColor = theme.palette.background.white;
+    const borderColor = theme.palette.grey;
+    const sideWidth = 500
     return (
         <main className={`flex flex-row w-full h-full`}>
             {/*<Button>Hello</Button>*/}
             <TabContext value={value}>
                 <Stack>
-                    <Box className="w-full border-2 border-white rounded-2xl"
+                    <Box className={`w-full border-b-2`}
                          style={{width: `calc(100vw - ${sideWidth}px)`, backgroundColor: bgColor}}>
-                        <TabList onChange={handleChange} aria-label="lab API tabs example" variant="fullWidth" sx={{fontSize:"small"}}>
+                        <TabList onChange={handleChange} aria-label="lab API tabs example" variant="fullWidth"
+                                 sx={{fontSize: "small"}}>
                             <Tab icon={<StartIcon/>} iconPosition="start" label="Start Here" {...a11yProps(0)} />
-                            <Tab icon={<PriorityHighIcon/>} iconPosition="start" label="Foundations" {...a11yProps(1)} />
+                            <Tab icon={<PriorityHighIcon/>} iconPosition="start"
+                                 label="Foundations" {...a11yProps(1)} />
                             <Tab icon={<SmartToyIcon/>} iconPosition="start" label="AI Risks" {...a11yProps(2)} />
-                            <Tab icon={<SchoolIcon/>} iconPosition={"start"} label="Students & Coaches" {...a11yProps(3)} />
+                            <Tab icon={<SchoolIcon/>} iconPosition={"start"}
+                                 label="Students & Coaches" {...a11yProps(3)} />
                             <Tab icon={<PsychologyIcon/>} iconPosition={"start"} label="Onboarding" {...a11yProps(4)} />
                             <Tab icon={<RepeatIcon/>} iconPosition={"start"} label="Ongoing..." {...a11yProps(5)} />
                         </TabList>
                     </Box>
                     <Box
-                        className="pl-12 p-6 border-2 border-white rounded-2xl h-full overflow-y-auto "
+                        className={`pl-12 p-6  h-full overflow-y-auto `}
                         style={{width: `calc(100vw - ${sideWidth}px)`, backgroundColor: bgColor}}>
 
                         <CustomTabPanel value={value} index={0}>
@@ -82,9 +86,9 @@ const HomePage = () => {
                     </Box>
                 </Stack>
             </TabContext>
-            <Box className={`w-[${sideWidth}px] border-2 border-white rounded-2xl p-6 overflow-y-auto`}
+            <Box className={`w-[${sideWidth}px] border-l-2 border-[${borderColor}] p-6 overflow-y-auto`}
                  style={{backgroundColor: bgColor}}>
-                <RiskComponent/>
+                <TaskEditor></TaskEditor>
             </Box>
 
         </main>

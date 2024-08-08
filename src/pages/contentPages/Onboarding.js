@@ -5,10 +5,7 @@ const PageContent = () => {
     const theme = useTheme()
     return (
         <Box className="w-full">
-            <Typography variant={"h4"} color={theme.palette.text.primary}>vcx</Typography>
-            <Typography variant={"h4"} color={theme.palette.text.primary}>vcx</Typography>
-            <Typography variant={"h4"} color={theme.palette.text.primary}>vcx</Typography>
-
+            <Typography variant={"h4"} color={theme.palette.text.primary}>Onboarding Content Goes Here</Typography>
         </Box>
     );
 }
