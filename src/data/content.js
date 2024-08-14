@@ -10,10 +10,6 @@ export const foundations = [
                     "Assisting a student with an upcoming FAFSA deadline.",
                     "Assisting a student in balancing their coursework, part-time job, and social life."
                 ]
-                ,
-                "links": [
-                    ""
-                ]
             },
             {
                 "title": "Review applicable AI regulations, guidelines, and core responsible AI concepts.",
@@ -59,7 +55,44 @@ export const foundations = [
     }
 ]
 
-export const aiRisks = [
+export const aiRisks = [{
+    "title": "Here you are going to take a first look at the risks for each AI coaching task.",
+    "content":
+        [
+            {
+                "title": "With your stakeholders, discuss what can go wrong in each coaching task.",
+                "body": "Each stakeholder brings a unique perspective, often highlighting different risks in AI coaching based on their expertise and experience.",
+                "examples": [
+                    "Students become overly dependent on advice.",
+                    "Coach can't handle emergency situations properly.",
+                    "Advice is culturally insensitive.",
+                    "Unrealistic expectations are set for results.",
+                    "No clear process for seeking additional help.",
+                    "Confidentiality between sessions is breached.",
+                    "Coach fails to adapt to individual situations."
+                ]
+            },
+            {
+                "title":
+                    "Consider how diverse student experiences might interact with standard coaching processes.",
+                "body":
+                    "Different student backgrounds and circumstances can lead to unique risks in AI coaching. By considering diverse student experiences, we can uncover potential issues that might not be apparent when thinking about a 'typical' student. This approach helps identify risks that could disproportionately affect certain groups or arise in specific situations.",
+                "examples":
+                    [
+                        "International students might misinterpret culturally-specific advice.",
+                        "Students with disabilities could face accessibility barriers in the coaching interface.",
+                        "First-generation students could receive advice that assumes prior family experience with higher education.",
+                        "Working students might struggle with time management advice that assumes a traditional schedule.",
+                        "Advice might not consider the resource constraints faced by students from various economic backgrounds.",
+                        "Non-native speakers may misunderstand nuanced language in coaching feedback.",
+                        "Students with mental health issues might receive inappropriately generalized wellness advice."
+                    ]
+            }
+            ,
+
+
+        ]
+}
     , {
         "title": "Let’s think about edge cases.",
         "content": [

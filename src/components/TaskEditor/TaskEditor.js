@@ -1,7 +1,7 @@
 // src/components/TaskEditor/TaskEditor.js
 import {observer} from "mobx-react";
 import {useTaskStore} from "@/stores/RootStore";
-import {useState} from "react";
+import {useEffect, useState} from "react";
 import Button from "@mui/material/Button";
 import TaskCard from "@/components/TaskCard/TaskCard";
 import Modal from "@mui/material/Modal";
@@ -22,6 +22,22 @@ const TaskEditor = observer(() => {
         setNewDescription("");
         handleClose();
     };
+
+    useEffect(() => {
+        if (typeof window !== 'undefined') {
+            taskStore.loadTasksFromLocalStorage();
+        }
+
+        const handleBeforeUnload = () => {
+            taskStore.saveTasksToLocalStorage();
+        };
+
+        window.addEventListener('beforeunload', handleBeforeUnload);
+
+        return () => {
+            window.removeEventListener('beforeunload', handleBeforeUnload);
+        };
+    }, []);
 
 
     return (

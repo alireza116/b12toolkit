@@ -225,7 +225,17 @@ const TaskCard = observer(({task, index}) => {
                                     key={idx}
                                     label={action.description}
                                     onDelete={() => handleRemoveAction(idx)}
-                                    sx={{marginBottom: "4px", marginRight: "4px"}}
+                                    sx={{
+                                        height: 'auto',
+                                        paddingTop: '4px',
+                                        paddingBottom: "4px",
+                                        '& .MuiChip-label': {
+                                            display: 'block',
+                                            whiteSpace: 'normal',
+                                        },
+                                        marginBottom: "4px",
+                                        marginRight: "4px"
+                                    }}
                                 />
                             ))}
                         </>

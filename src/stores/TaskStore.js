@@ -8,7 +8,10 @@ class TaskStore {
 
     constructor() {
         makeAutoObservable(this);
-        this.loadSampleTasks();
+        // if (typeof window !== 'undefined') {
+        //     this.loadTasksFromLocalStorage();
+        // }
+
     }
 
     loadSampleTasks() {
@@ -27,21 +30,25 @@ class TaskStore {
     addTask(description) {
         const newTask = new Task(description);
         this.tasks.push(newTask);
+        this.saveTasksToLocalStorage();
     }
 
     removeTask(taskIndex) {
         this.tasks.splice(taskIndex, 1);
+        this.saveTasksToLocalStorage();
     }
 
     changeDescription(taskIndex, newDescription) {
         const task = this.tasks[taskIndex];
         task.description = newDescription;
+        this.saveTasksToLocalStorage();
     }
 
     addRiskToTask(taskIndex, riskDescription) {
         const task = this.tasks[taskIndex];
         if (task) {
             task.addRisk(riskDescription);
+            this.saveTasksToLocalStorage();
         }
     }
 
@@ -49,6 +56,7 @@ class TaskStore {
         const task = this.tasks[taskIndex];
         if (task) {
             task.removeRisk(riskIndex);
+            this.saveTasksToLocalStorage();
         }
     }
 
@@ -56,6 +64,7 @@ class TaskStore {
         const task = this.tasks[taskIndex];
         if (task) {
             task.risks[riskIndex].addAction(actionDescription);
+            this.saveTasksToLocalStorage();
         }
     }
 
@@ -63,6 +72,36 @@ class TaskStore {
         const task = this.tasks[taskIndex];
         if (task) {
             task.risks[riskIndex].removeAction(actionIndex);
+            this.saveTasksToLocalStorage();
+        }
+    }
+
+    saveTasksToLocalStorage() {
+        if (typeof window !== 'undefined') {
+            const tasksJson = JSON.stringify(this.tasks);
+            localStorage.setItem('tasks', tasksJson);
+        }
+    }
+
+    loadTasksFromLocalStorage() {
+        if (typeof window !== 'undefined') {
+            const tasksJson = localStorage.getItem('tasks');
+            if (tasksJson) {
+                const tasksArray = JSON.parse(tasksJson);
+                this.tasks = tasksArray.map(taskData => {
+                    const task = new Task(taskData.description);
+                    taskData.risks.forEach(riskData => {
+                        const risk = task.addRisk(riskData.description);
+                        riskData.actions.forEach(actionData => {
+                            risk.addAction(actionData.description);
+                        });
+                    });
+                    return task;
+                });
+            }
+            if (this.tasks.length === 0) {
+                this.loadSampleTasks();
+            }
         }
     }
 }
