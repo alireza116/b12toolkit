@@ -1,17 +1,31 @@
 // src/stores/TaskStore.js
 import {makeAutoObservable} from 'mobx';
 import Task from './models/Task';
+import sampleTasks from '@/data/sampleTasks.js';
 
 class TaskStore {
     tasks = [];
 
     constructor() {
         makeAutoObservable(this);
+        this.loadSampleTasks();
     }
 
-    addTask(title, description) {
-        const new_id = this.tasks.length;
-        const newTask = new Task(new_id, title, description);
+    loadSampleTasks() {
+        sampleTasks.forEach(taskData => {
+            const task = new Task(taskData.description);
+            taskData.risks.forEach(riskData => {
+                const risk = task.addRisk(riskData.description);
+                riskData.actions.forEach(actionData => {
+                    risk.addAction(actionData.description);
+                });
+            });
+            this.tasks.push(task);
+        });
+    }
+
+    addTask(description) {
+        const newTask = new Task(description);
         this.tasks.push(newTask);
     }
 
@@ -20,40 +34,35 @@ class TaskStore {
     }
 
     changeDescription(taskIndex, newDescription) {
-        const task = this.tasks[taskIndex]
+        const task = this.tasks[taskIndex];
         task.description = newDescription;
     }
 
-    changeTitle(taskIndex, newTitle) {
-        const task = this.tasks[taskIndex]
-        task.title = newTitle;
-    }
-
-    addRiskToTask(taskIndex, risk) {
-        const task = this.tasks[taskIndex]
+    addRiskToTask(taskIndex, riskDescription) {
+        const task = this.tasks[taskIndex];
         if (task) {
-            task.risks.push(risk);
-        }
-    }
-
-    addActionToTask(taskIndex, action) {
-        const task = this.tasks[taskIndex]
-        if (task) {
-            task.actions.push(action);
+            task.addRisk(riskDescription);
         }
     }
 
     removeRiskFromTask(taskIndex, riskIndex) {
         const task = this.tasks[taskIndex];
         if (task) {
-            task.risks.splice(riskIndex, 1);
+            task.removeRisk(riskIndex);
         }
     }
 
-    removeActionFromTask(taskIndex, actionIndex) {
+    addActionToRisk(taskIndex, riskIndex, actionDescription) {
         const task = this.tasks[taskIndex];
         if (task) {
-            task.actions.splice(actionIndex, 1);
+            task.risks[riskIndex].addAction(actionDescription);
+        }
+    }
+
+    removeActionFromRisk(taskIndex, riskIndex, actionIndex) {
+        const task = this.tasks[taskIndex];
+        if (task) {
+            task.risks[riskIndex].removeAction(actionIndex);
         }
     }
 }

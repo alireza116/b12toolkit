@@ -1,14 +1,16 @@
-import {Box, Typography} from "@mui/material";
+import {Container} from "@mui/material";
 import {useTheme} from "@mui/material/styles";
+import {aiRisks} from "@/data/content";
+import PageContentSections from "@/components/PageContentSections/PageContentSections";
 
 const PageContent = () => {
     const theme = useTheme()
     return (
-        <Box className="w-full">
-            <Typography variant={"h4"} color={theme.palette.text.primary}>Ai Risks Page Goes Here</Typography>
+        <Container maxWidth={"lg"} className="w-full">
+            <PageContentSections pageData={aiRisks}></PageContentSections>
 
 
-        </Box>
+        </Container>
     );
 }
 

@@ -1,12 +1,12 @@
-import {Box, Typography} from "@mui/material";
+import {Container, Typography} from "@mui/material";
 import {useTheme} from "@mui/material/styles";
 
 const PageContent = () => {
     const theme = useTheme()
     return (
-        <Box className="w-full">
-            <Typography variant={"h4"} color={theme.palette.text.primary}>Onboarding Content Goes Here</Typography>
-        </Box>
+        <Container maxWidth={"md"} className="w-full flex-column">
+            <Typography className={"mb-4"} variant={"h4"}>Onboarding Content Goes Here</Typography>
+        </Container>
     );
 }
 

@@ -11,7 +11,7 @@ const colors = {
 
 const theme = createTheme({
     typography: {
-        fontFamily: 'Helvetica',
+        fontFamily: 'Roboto, sans-serif',
         color: colors.dark,
     },
     components: {
@@ -19,6 +19,13 @@ const theme = createTheme({
             styleOverrides: {
                 root: {
                     border: '8px solid grey',
+                },
+            },
+        },
+        MuiTypography: {
+            styleOverrides: {
+                root: {
+                    fontFamily: 'Roboto'
                 },
             },
         },

@@ -38,18 +38,19 @@ const HomePage = () => {
     const theme = useTheme()
     const bgColor = theme.palette.background.white;
     const borderColor = theme.palette.grey;
-    const sideWidth = 500
+    const sideWidth = 400
     return (
         <main className={`flex flex-row w-full h-full`}>
             {/*<Button>Hello</Button>*/}
             <TabContext value={value}>
-                <Stack>
+                <Stack className={"content-side"}>
                     <Box className={`w-full border-b-2`}
                          style={{width: `calc(100vw - ${sideWidth}px)`, backgroundColor: bgColor}}>
                         <TabList onChange={handleChange} aria-label="lab API tabs example" variant="fullWidth"
-                                 sx={{fontSize: "small"}}>
-                            <Tab icon={<StartIcon/>} iconPosition="start" label="Start Here" {...a11yProps(0)} />
-                            <Tab icon={<PriorityHighIcon/>} iconPosition="start"
+                                 sx={{fontSize: "small"}} className={"content-tabs"}>
+                            <Tab icon={<StartIcon/>} className={"start-here-tab"} iconPosition="start"
+                                 label="Start Here" {...a11yProps(0)} />
+                            <Tab icon={<PriorityHighIcon/>} className={"foundations-tab"} iconPosition="start"
                                  label="Foundations" {...a11yProps(1)} />
                             <Tab icon={<SmartToyIcon/>} iconPosition="start" label="AI Risks" {...a11yProps(2)} />
                             <Tab icon={<SchoolIcon/>} iconPosition={"start"}
@@ -86,8 +87,8 @@ const HomePage = () => {
                     </Box>
                 </Stack>
             </TabContext>
-            <Box className={`w-[${sideWidth}px] border-l-2 border-[${borderColor}] p-6 overflow-y-auto`}
-                 style={{backgroundColor: bgColor}}>
+            <Box className={`border-l-2 border-[${borderColor}] p-6 overflow-y-auto`}
+                 sx={{backgroundColor: bgColor, width: `${sideWidth}px`}}>
                 <TaskEditor></TaskEditor>
             </Box>
 

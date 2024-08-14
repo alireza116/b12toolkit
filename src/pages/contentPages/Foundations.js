@@ -1,14 +1,17 @@
-import {Box, Typography} from "@mui/material";
+import {Container} from "@mui/material";
 import {useTheme} from "@mui/material/styles";
+import {foundations} from "@/data/content";
+import PageContentSections from "@/components/PageContentSections/PageContentSections";
 
 const PageContent = () => {
+    const pageData = foundations;
     const theme = useTheme()
     return (
-        <Box className="w-full">
-            <Typography variant={"h4"} color={theme.palette.text.primary}>Foundations Content Goes Here</Typography>
+        <Container maxWidth={"lg"} className="w-full">
+            <PageContentSections pageData={pageData}>
 
-
-        </Box>
+            </PageContentSections>
+        </Container>
     );
 }
 

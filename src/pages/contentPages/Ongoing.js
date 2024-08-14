@@ -1,12 +1,12 @@
-import {Box, Typography} from "@mui/material";
+import {Container, Typography} from "@mui/material";
 import {useTheme} from "@mui/material/styles";
 
 const PageContent = () => {
     const theme = useTheme()
     return (
-        <Box className="w-full">
-            <Typography variant={"h4"} color={theme.palette.text.primary}>Ongoing Content Goes Here</Typography>
-        </Box>
+        <Container maxWidth={"md"} className="w-full">
+            <Typography variant={"h4"}>Ongoing Content Goes Here</Typography>
+        </Container>
     );
 }
 

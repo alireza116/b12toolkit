@@ -1,23 +1,53 @@
 // src/models/TaskCard.js
 import {makeAutoObservable} from 'mobx';
 
-class Task {
-    id;
-    title;
-    description;
-    risks = [];
+class Action {
+    id = Math.random();
+    description = "";
+
+    constructor(description) {
+        this.description = description;
+        makeAutoObservable(this);
+    }
+}
+
+class Risk {
+    id = Math.random();
+    description = "";
     actions = [];
 
-    constructor(id, title, description) {
-        this.id = id;
-        this.title = title;
+    constructor(description) {
         this.description = description;
-        makeAutoObservable(this, {
-            title: true,
-            description: true,
-            risks: true, // Make risks observable
-            actions: true, // Make actions observable
-        });
+        this.actions = [];
+        makeAutoObservable(this);
+    }
+
+    addAction(description) {
+        this.actions.push(new Action(description));
+    }
+
+    removeAction(index) {
+        this.actions.splice(index, 1);
+    }
+}
+
+class Task {
+    description;
+    risks = [];
+
+    constructor(description) {
+        this.description = description;
+        makeAutoObservable(this);
+    }
+
+    addRisk(description) {
+        const newRisk = new Risk(description);
+        this.risks.push(newRisk);
+        return newRisk;
+    }
+
+    removeRisk(index) {
+        this.risks.splice(index, 1);
     }
 }
 
