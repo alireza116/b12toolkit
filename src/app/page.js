@@ -11,12 +11,12 @@ import SmartToyIcon from '@mui/icons-material/SmartToy';
 import SchoolIcon from '@mui/icons-material/School';
 import PsychologyIcon from '@mui/icons-material/Psychology';
 import RepeatIcon from '@mui/icons-material/Repeat';
-import StartPage from "@/pages/contentPages/StartPage";
-import Foundations from "@/pages/contentPages/Foundations";
-import AiRisks from "@/pages/contentPages/AiRisks";
-import StudentCoach from "@/pages/contentPages/StudentCoach";
-import Onboarding from "@/pages/contentPages/Onboarding";
-import Ongoing from "@/pages/contentPages/Ongoing";
+import StartPage from "@/contentPages/contentPages/StartPage";
+import Foundations from "@/contentPages/contentPages/Foundations";
+import AiRisks from "@/contentPages/contentPages/AiRisks";
+import StudentCoach from "@/contentPages/contentPages/StudentCoach";
+import Onboarding from "@/contentPages/contentPages/Onboarding";
+import Ongoing from "@/contentPages/contentPages/Ongoing";
 import TaskEditor from "@/components/TaskEditor/TaskEditor";
 
 function a11yProps(index) {
