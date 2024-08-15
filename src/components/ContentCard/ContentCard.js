@@ -7,13 +7,13 @@ import LinkChips from "@/components/Chips/LinkChips";
 const ContentCard = ({title, body, examples, links, children}) => {
     const theme = useTheme();
     return (
-        <div className={"w-1/2 pr-4 pb-4"}>
-            <MuiCard className="w-full h-full shadow-none p-2"
+        <div className={"w-full lg:w-1/2 pr-4 pb-4"}>
+            <MuiCard className="w-full h-full shadow-none p-2 pb-0"
                      sx={{background: theme.palette.background.default}}>
-                <CardContent className="flex flex-col h-full max-h-[500px] flex-grow">
-                    <Typography variant="h5" className="mb-4">{title}</Typography>
-                    <div className="flex-grow overflow-y-auto pt-4 border-t-2">
-                        <Typography variant="h6" className="mt-4">Why?</Typography>
+                <CardContent className="flex flex-col h-full max-h-[500px] flex-grow pb-0">
+                    <Typography variant="h6" className="mb-4">{title}</Typography>
+                    <div className="flex-grow overflow-y-auto border-t-2">
+                        <Typography variant="h6" className="mt-4 mb-2">Why?</Typography>
                         <Typography variant={"body2"}>{body}</Typography>
                         {examples && (
                             <div>
@@ -22,7 +22,7 @@ const ContentCard = ({title, body, examples, links, children}) => {
                             </div>
                         )}
                     </div>
-                    {links && (<Box sx={{display: 'flex', justifyContent: 'flex-end', width: '100%', marginTop: 2}}>
+                    {links && (<Box sx={{display: 'flex', justifyContent: 'flex-end', width: '100%', marginTop: 4}}>
                         <LinkChips links={links}/>
                     </Box>)}
                 </CardContent>

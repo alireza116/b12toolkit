@@ -41,29 +41,35 @@ const HomePage = () => {
     const sideWidth = 400
     const tabHeight = 70
     return (
-        <main className={`flex flex-row w-full h-full`}>
+        <main className={`flex w-full h-full`}>
 
             <TabContext value={value}>
-                <Stack className={"content-side"}>
-                    <Box className={`w-full border-b-2`}
-                         style={{width: `calc(100vw - ${sideWidth}px)`, backgroundColor: bgColor}}>
-                        <TabList onChange={handleChange} aria-label="lab API tabs example" variant="fullWidth"
-                                 sx={{fontSize: "small", height: `${tabHeight}px`}} className={"content-tabs"}>
+                <Stack className={"content-side w-full md:w-4/6"}
+                       sx={{backgroundColor: bgColor}}>
+                    <Box className={`w-full border-b-2`}>
+
+                        <TabList onChange={handleChange} aria-label="lab API tabs example"
+                                 variant="scrollable" scrollButtons="auto"
+                                 sx={{fontSize: "small"}}
+                                 TabIndicatorProps={{sx: {display: 'none'}}}
+                                 className={" content-tabs"}>
                             <Tab icon={<StartIcon/>} className={"start-here-tab"} iconPosition="start"
-                                 label="Start Here" {...a11yProps(0)} />
+                                 label="Start Here" {...a11yProps(0)} sx={{minWidth: "fit-content", flex: 1}}/>
                             <Tab icon={<PriorityHighIcon/>} className={"foundations-tab"} iconPosition="start"
-                                 label="Foundations" {...a11yProps(1)} />
-                            <Tab icon={<SmartToyIcon/>} iconPosition="start" label="AI Risks" {...a11yProps(2)} />
+                                 label="Foundations" {...a11yProps(1)} sx={{minWidth: "fit-content", flex: 1}}/>
+                            <Tab icon={<SmartToyIcon/>} iconPosition="start" label="AI Risks" {...a11yProps(2)}
+                                 sx={{minWidth: "fit-content", flex: 1}}/>
                             <Tab icon={<SchoolIcon/>} iconPosition={"start"}
-                                 label="Students & Coaches" {...a11yProps(3)} />
+                                 label="Students & Coaches" {...a11yProps(3)} sx={{minWidth: "fit-content", flex: 1}}/>
                             <Tab icon={<PsychologyIcon/>} iconPosition={"start"}
-                                 label="Interactions" {...a11yProps(4)} />
-                            <Tab icon={<RepeatIcon/>} iconPosition={"start"} label="Reassessment" {...a11yProps(5)} />
+                                 label="Interactions" {...a11yProps(4)} sx={{minWidth: "fit-content", flex: 1}}/>
+                            <Tab icon={<RepeatIcon/>} iconPosition={"start"} label="Reassessment" {...a11yProps(5)}
+                                 sx={{minWidth: "fit-content", flex: 1}}/>
                         </TabList>
                     </Box>
                     <Box
-                        className={`pl-12 p-4  h-full overflow-y-auto `}
-                        style={{width: `calc(100vw - ${sideWidth}px)`, backgroundColor: bgColor}}>
+                        className={`pl-12 p-4 h-full w-full overflow-y-auto `}
+                        style={{backgroundColor: bgColor}}>
 
                         <CustomTabPanel value={value} index={0}>
                             <StartPage>
@@ -89,8 +95,8 @@ const HomePage = () => {
                     </Box>
                 </Stack>
             </TabContext>
-            <Box className={`border-l-2 border-[${borderColor}]  h-full`}
-                 sx={{backgroundColor: bgColor, width: `${sideWidth}px`}}>
+            <Box className={`border-l-2 border-[${borderColor} hidden md:block w-2/6 `}
+            >
                 <TaskEditor tabHeight={tabHeight}></TaskEditor>
             </Box>
 

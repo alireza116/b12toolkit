@@ -1,4 +1,4 @@
-import {Container, Stack} from '@mui/material';
+import {Stack} from '@mui/material';
 import NavBar from '../components/NavBar/NavBar';
 import {useTheme} from "@mui/material/styles";
 import {useEffect, useRef, useState} from "react";
@@ -31,11 +31,13 @@ const Layout = ({children}) => {
     return (
         <Stack direction='column' sx={{height: '100vh', backgroundColor: theme.palette.background.paper}}>
             <NavBar ref={navBarRef}/>
-            <Container maxWidth={false}
-                       sx={{flexGrow: 1, width: '100%', height: `calc(100vh - ${navBarHeight}px)`, maxWidth: 'none'}}
-                       className="p-0">
+            <div style={{
+                width: '100%',
+                height: `calc(100vh - ${navBarHeight}px)`,
+            }}
+            >
                 {children}
-            </Container>
+            </div>
         </Stack>
     );
 }
