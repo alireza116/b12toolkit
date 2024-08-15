@@ -1,6 +1,6 @@
 // src/stores/TaskStore.js
 import {makeAutoObservable} from 'mobx';
-import Task from './models/Task';
+import Task from '@/stores/models/Task';
 import sampleTasks from '@/data/sampleTasks.js';
 
 class TaskStore {

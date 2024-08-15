@@ -39,15 +39,16 @@ const HomePage = () => {
     const bgColor = theme.palette.background.white;
     const borderColor = theme.palette.grey;
     const sideWidth = 400
+    const tabHeight = 70
     return (
         <main className={`flex flex-row w-full h-full`}>
-            {/*<Button>Hello</Button>*/}
+
             <TabContext value={value}>
                 <Stack className={"content-side"}>
                     <Box className={`w-full border-b-2`}
                          style={{width: `calc(100vw - ${sideWidth}px)`, backgroundColor: bgColor}}>
                         <TabList onChange={handleChange} aria-label="lab API tabs example" variant="fullWidth"
-                                 sx={{fontSize: "small"}} className={"content-tabs"}>
+                                 sx={{fontSize: "small", height: `${tabHeight}px`}} className={"content-tabs"}>
                             <Tab icon={<StartIcon/>} className={"start-here-tab"} iconPosition="start"
                                  label="Start Here" {...a11yProps(0)} />
                             <Tab icon={<PriorityHighIcon/>} className={"foundations-tab"} iconPosition="start"
@@ -55,12 +56,13 @@ const HomePage = () => {
                             <Tab icon={<SmartToyIcon/>} iconPosition="start" label="AI Risks" {...a11yProps(2)} />
                             <Tab icon={<SchoolIcon/>} iconPosition={"start"}
                                  label="Students & Coaches" {...a11yProps(3)} />
-                            <Tab icon={<PsychologyIcon/>} iconPosition={"start"} label="Onboarding" {...a11yProps(4)} />
-                            <Tab icon={<RepeatIcon/>} iconPosition={"start"} label="Ongoing..." {...a11yProps(5)} />
+                            <Tab icon={<PsychologyIcon/>} iconPosition={"start"}
+                                 label="Interactions" {...a11yProps(4)} />
+                            <Tab icon={<RepeatIcon/>} iconPosition={"start"} label="Reassessment" {...a11yProps(5)} />
                         </TabList>
                     </Box>
                     <Box
-                        className={`pl-12 p-6  h-full overflow-y-auto `}
+                        className={`pl-12 p-4  h-full overflow-y-auto `}
                         style={{width: `calc(100vw - ${sideWidth}px)`, backgroundColor: bgColor}}>
 
                         <CustomTabPanel value={value} index={0}>
@@ -87,9 +89,9 @@ const HomePage = () => {
                     </Box>
                 </Stack>
             </TabContext>
-            <Box className={`border-l-2 border-[${borderColor}] p-6 overflow-y-auto`}
+            <Box className={`border-l-2 border-[${borderColor}]  h-full`}
                  sx={{backgroundColor: bgColor, width: `${sideWidth}px`}}>
-                <TaskEditor></TaskEditor>
+                <TaskEditor tabHeight={tabHeight}></TaskEditor>
             </Box>
 
         </main>

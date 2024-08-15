@@ -1,6 +1,6 @@
-import {Container, Typography} from "@mui/material";
+import {Container} from "@mui/material";
 import {useTheme} from "@mui/material/styles";
-import {studentCoach} from "@/data/content";
+import {studentCoach} from "@/data/content-links";
 import PageContentSections from "@/components/PageContentSections/PageContentSections";
 
 const PageContent = () => {

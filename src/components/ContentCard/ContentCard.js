@@ -1,13 +1,14 @@
 import React from "react";
-import {Card as MuiCard, CardContent, Typography} from "@mui/material";
+import {Box, Card as MuiCard, CardContent, Typography} from "@mui/material";
 import {useTheme} from "@mui/material/styles";
 import ExampleList from "@/components/ExampleList/ExampleList";
+import LinkChips from "@/components/Chips/LinkChips";
 
-const ContentCard = ({title, body, examples, children}) => {
+const ContentCard = ({title, body, examples, links, children}) => {
     const theme = useTheme();
     return (
         <div className={"w-1/2 pr-4 pb-4"}>
-            <MuiCard className="w-full h-full shadow-none p-4 m-0"
+            <MuiCard className="w-full h-full shadow-none p-2"
                      sx={{background: theme.palette.background.default}}>
                 <CardContent className="flex flex-col h-full max-h-[500px] flex-grow">
                     <Typography variant="h5" className="mb-4">{title}</Typography>
@@ -21,6 +22,9 @@ const ContentCard = ({title, body, examples, children}) => {
                             </div>
                         )}
                     </div>
+                    {links && (<Box sx={{display: 'flex', justifyContent: 'flex-end', width: '100%', marginTop: 2}}>
+                        <LinkChips links={links}/>
+                    </Box>)}
                 </CardContent>
             </MuiCard>
         </div>

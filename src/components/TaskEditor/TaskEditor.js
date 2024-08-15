@@ -7,8 +7,9 @@ import TaskCard from "@/components/TaskCard/TaskCard";
 import Modal from "@mui/material/Modal";
 import Box from "@mui/material/Box";
 import TextField from "@mui/material/TextField";
+import {Stack} from "@mui/material";
 
-const TaskEditor = observer(() => {
+const TaskEditor = observer(({tabHeight}) => {
     const taskStore = useTaskStore();
     const [open, setOpen] = useState(false);
     const [newDescription, setNewDescription] = useState("");
@@ -41,14 +42,19 @@ const TaskEditor = observer(() => {
 
 
     return (
-        <div className={"flex-row space-y-4 w-full"}>
-            <Button className={"create-task"} onClick={handleOpen} variant="outlined" fullWidth>
-                Create Task
-            </Button>
-            {taskStore.tasks.slice().reverse().map((task, index) => {
-                const originalIndex = taskStore.tasks.length - 1 - index;
-                return <TaskCard key={originalIndex} task={task} index={originalIndex}/>;
-            })}
+        <Stack className={"h-full"}>
+            <Box
+                className={`h-[${tabHeight}px] flex justify-center align-middle pl-12 pr-12 p-4 `}>
+                <Button className={"create-task"} onClick={handleOpen} variant="outlined" fullWidth>
+                    Create Task
+                </Button>
+            </Box>
+            <Box className={"flex-row space-y-4 w-full h-full overflow-y-auto p-4"}>
+                {taskStore.tasks.slice().reverse().map((task, index) => {
+                    const originalIndex = taskStore.tasks.length - 1 - index;
+                    return <TaskCard key={originalIndex} task={task} index={originalIndex}/>;
+                })}
+            </Box>
             <Modal
                 open={open}
                 onClose={handleClose}
@@ -79,7 +85,7 @@ const TaskEditor = observer(() => {
                     </Button>
                 </Box>
             </Modal>
-        </div>
+        </Stack>
     );
 });
 

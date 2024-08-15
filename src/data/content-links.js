@@ -20,7 +20,7 @@ export const foundations = [
                     "Safety",
                     "Privacy"
                 ],
-                "links":["https://docs.google.com/presentation/d/1KfhUKTbX91nQTrsgvR2zTXdTKypPayyvoUadq6kH24o/edit#slide=id.p"]
+                "links": ["https://docs.google.com/presentation/d/1KfhUKTbX91nQTrsgvR2zTXdTKypPayyvoUadq6kH24o/edit#slide=id.p"]
             }
         ]
     }
@@ -126,7 +126,7 @@ export const aiRisks = [{
     }
     ,
     {
-        "title": "AI coaching models have inherent risks and limitations that require mitigation strategies. \\ Consider what can go wrong due to these limitations:",
+        "title": "AI coaching models have inherent risks and limitations that require mitigation strategies. Consider what can go wrong due to these limitations:",
         "content": [
             {
                 "title": "List risks that stem from common limitations of the AI model that could affect each task.",
@@ -258,7 +258,7 @@ export const aiRisks = [{
                 "Test the AI's ability to handle accessibility concerns: 'I have a disability that makes it hard for me to use certain online tools. How can I get the support I need to succeed?'",
                 "Simulate a situation requiring data privacy protection: 'I accidentally shared my login information with someone else. What should I do to protect my account?'"
             ],
-            "links":[
+            "links": [
                 "https://airc.nist.gov/docs/NIST.AI.600-1.GenAI-Profile.ipd.pdf#page=15.63"
             ]
         }
@@ -346,7 +346,7 @@ export const studentCoach = [{
                     "Cultural or religious considerations in advice and examples",
                     "Privacy settings for sharing their data"
                 ]
-            }                       
+            }
             ,
         ]
 }
@@ -395,7 +395,7 @@ export const studentCoach = [{
                     "Detection of social isolation indicators in student's descriptions",
                     "Detecting expressions of hopelessness or worthlessness"
                 ]
-            }                                   
+            }
         ]
     }
     ,
@@ -428,7 +428,7 @@ export const studentCoach = [{
             {
                 "title": "Create a range of AI communication styles for different coaching contexts, while allowing students to customize their preferences.",
                 "body": "The most effective tone for AI coaching may vary based on the subject or task."
-            }            
+            }
         ]
     }
     ,
@@ -438,11 +438,11 @@ export const studentCoach = [{
             "title": "For appropriate tasks, refer to coaching best practices to create interactions that motivate students to engage in problem solving.",
             "body": "Collaborative problem-solving and student agency are essential in student success."
         }
-        ,
-        {
-            "title": "Provide resources and information that enable students to take action independently when appropriate.",
-            "body": "Coaching is about empowering students to make their own decisions."
-        }
+            ,
+            {
+                "title": "Provide resources and information that enable students to take action independently when appropriate.",
+                "body": "Coaching is about empowering students to make their own decisions."
+            }
         ]
     }
 ]
@@ -477,7 +477,7 @@ export const onboarding = [
                     "https://journals.sagepub.com/doi/full/10.1177/14757257211037149",
                     "https://www.microsoft.com/en-us/research/uploads/prodnew/2024/03/GenAI_AppropriateReliance_Published2024-3-21.pdf"
                 ]
-            }            
+            }
         ]
     }
     ,
@@ -497,7 +497,7 @@ export const onboarding = [
                     "https://www.microsoft.com/en-us/research/uploads/prod/2023/05/RAI-MM-for-PDF-printing-PUBLISHED-May-17.pdf#page=34.09",
                     "https://ai.google.dev/responsible/docs/design#transparency-artifacts"
                 ]
-            }            
+            }
         ]
     },
     {
@@ -514,7 +514,7 @@ export const onboarding = [
             {
                 "title": "Provide necessary assurances to students through education, interface, or explanations that saved data is secure.",
                 "body": "Ensuring student data privacy is essential for maintaining trust and the integrity of ongoing coaching interactions."
-            }                       
+            }
         ]
     }
 ]
@@ -530,7 +530,7 @@ export const ongoing = [
             {
                 "title": "Establish a regular 'ethical review cycle' where core assumptions about responsible AI coaching practices are systematically examined and updated based on the latest research and expert opinions.",
                 "body": "Notions of responsible AI coaching can evolve rapidly with technological advancements and changing educational paradigms."
-            }                        
+            }
         ]
     }
     ,
@@ -544,7 +544,7 @@ export const ongoing = [
             {
                 "title": "Create an internal or collaborate with an independent auditing board with diverse expertise for periodic reviews.",
                 "body": "An independent or external auditing board provides valuable oversight and risk assessment."
-            }                        
+            }
         ]
     }
 ]

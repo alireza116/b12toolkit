@@ -1,6 +1,6 @@
 import {Container} from "@mui/material";
 import {useTheme} from "@mui/material/styles";
-import {foundations} from "@/data/content";
+import {foundations} from "@/data/content-links";
 import PageContentSections from "@/components/PageContentSections/PageContentSections";
 
 const PageContent = () => {

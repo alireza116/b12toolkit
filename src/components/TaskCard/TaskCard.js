@@ -11,9 +11,11 @@ import Avatar from "@mui/material/Avatar";
 import {useTheme} from "@mui/material/styles";
 import Modal from "@mui/material/Modal";
 import Box from "@mui/material/Box";
-import Link from "@mui/material/Link";
 import {IconButton, Typography} from "@mui/material";
 import CloseIcon from '@mui/icons-material/Close';
+import DeleteIcon from '@mui/icons-material/Delete';
+import EditIcon from '@mui/icons-material/Edit';
+import AddCircleIcon from '@mui/icons-material/AddCircle';
 
 const TaskCard = observer(({task, index}) => {
     const theme = useTheme();
@@ -26,16 +28,28 @@ const TaskCard = observer(({task, index}) => {
     const [newDescription, setNewDescription] = useState(task.description);
     const [selectedRiskIndex, setSelectedRiskIndex] = useState(null);
     const [newRiskDescription, setNewRiskDescription] = useState("");
+    const [riskError, setRiskError] = useState("");
+    const [actionError, setActionError] = useState("");
 
     const handleAddRisk = () => {
+        if (risk.trim() === "") {
+            setRiskError("Risk cannot be empty");
+            return;
+        }
         taskStore.addRiskToTask(index, risk);
         setRisk("");
+        setRiskError("");
         setRiskModalOpen(false);
     };
 
     const handleAddAction = () => {
+        if (action.trim() === "") {
+            setActionError("Action cannot be empty");
+            return;
+        }
         taskStore.addActionToRisk(index, selectedRiskIndex, action);
         setAction("");
+        setActionError("");
     };
 
     const handleRemoveRisk = (riskIndex) => {
@@ -78,54 +92,72 @@ const TaskCard = observer(({task, index}) => {
         taskStore.tasks[index].risks[selectedRiskIndex].description = updatedDescription;
     };
 
+    const handleDeleteTask = () => {
+        taskStore.removeTask(index);
+    };
+
     return (
         <Card className={`shadow-none w-full task-${index}`} sx={{background: theme.palette.background.default}}>
-            <CardContent className="flex-row space-y-4 w-full">
-                <div className={`border-b-2 pb-2 task-${index}-description`}>
+            <CardContent className="flex-row w-full">
+                <div className="flex justify-between items-center border-b-2">
                     <Typography variant={"caption"} sx={{display: 'flex', justifyContent: 'center'}}>
                         Task {index + 1}
                     </Typography>
-
+                    <IconButton
+                        aria-label="delete"
+                        onClick={handleDeleteTask}
+                    >
+                        <DeleteIcon/>
+                    </IconButton>
+                </div>
+                <div className={`pb-2 flex flex-col align-middle justify-center border-b-2 task-${index}-description`}>
                     <div className="flex justify-between items-center">
                         <div>
                             <Typography className={"mb-2"} variant="caption">Task Description</Typography>
                         </div>
-                        <Link component="button" variant="caption" onClick={handleOpenDescModal}>
-                            Edit
-                        </Link>
+                        <IconButton
+                            aria-label="edit"
+                            onClick={handleOpenDescModal}
+                        >
+                            <EditIcon/>
+                        </IconButton>
                     </div>
                     <h5>{task.description}</h5>
                 </div>
-
-                <div className={`task-${index}-risks`}>
+                <div className={`flex flex-col align-middle justify-center task-${index}-risks`}>
                     <div className={`flex justify-between items-center`}>
                         <Typography className={"mb-2"} variant="caption">Risks</Typography>
-                        <Link component="button" variant="caption" onClick={handleOpenRiskModal}>
-                            Add Risk
-                        </Link>
+                        <IconButton
+                            aria-label="add risk"
+                            onClick={handleOpenRiskModal}
+                        >
+                            <AddCircleIcon/>
+                        </IconButton>
                     </div>
-                    {task.risks.map((risk, idx) => (
-                        <Chip
-                            key={idx}
-                            className={`task-${index}-risk-${idx}`}
-                            avatar={<Avatar sx={{width: 24, height: 24}}>{risk.actions.length}</Avatar>}
-                            label={`${risk.description}`}
-                            onClick={() => handleOpenActionModal(idx)}
-                            onDelete={() => handleRemoveRisk(idx)}
-                            size="medium"
-                            sx={{
-                                height: 'auto',
-                                paddingTop: '4px',
-                                paddingBottom: "4px",
-                                '& .MuiChip-label': {
-                                    display: 'block',
-                                    whiteSpace: 'normal',
-                                },
-                                marginBottom: "4px",
-                                marginRight: "4px"
-                            }}
-                        />
-                    ))}
+                    <div>
+                        {task.risks.map((risk, idx) => (
+                            <Chip
+                                key={idx}
+                                className={`task-${index}-risk-${idx}`}
+                                avatar={<Avatar sx={{width: 24, height: 24}}>{risk.actions.length}</Avatar>}
+                                label={`${risk.description}`}
+                                onClick={() => handleOpenActionModal(idx)}
+                                onDelete={() => handleRemoveRisk(idx)}
+                                size="medium"
+                                sx={{
+                                    height: 'auto',
+                                    paddingTop: '4px',
+                                    paddingBottom: "4px",
+                                    '& .MuiChip-label': {
+                                        display: 'block',
+                                        whiteSpace: 'normal',
+                                    },
+                                    marginBottom: "4px",
+                                    marginRight: "4px"
+                                }}
+                            />
+                        ))}
+                    </div>
                 </div>
             </CardContent>
             <Modal
@@ -181,6 +213,8 @@ const TaskCard = observer(({task, index}) => {
                         onChange={(e) => setRisk(e.target.value)}
                         fullWidth
                         margin="normal"
+                        error={!!riskError}
+                        helperText={riskError}
                     />
                     <Button onClick={handleAddRisk} variant="contained" color="primary">
                         Add
@@ -246,6 +280,8 @@ const TaskCard = observer(({task, index}) => {
                         onChange={(e) => setAction(e.target.value)}
                         fullWidth
                         margin="normal"
+                        error={!!actionError}
+                        helperText={actionError}
                     />
                     <Button onClick={handleAddAction} variant="contained" color="primary">
                         Add

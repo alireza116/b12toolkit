@@ -1,7 +1,7 @@
 // src/stores/rootStore.js
 import {createContext, useContext} from 'react';
-import riskStore from './riskStore'; //
-import taskStore from './taskStore';
+import riskStore from '@/stores/riskStore'; //
+import taskStore from '@/stores/taskStore';
 
 class RootStore {
     constructor() {
