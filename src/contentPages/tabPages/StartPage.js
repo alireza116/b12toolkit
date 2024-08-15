@@ -59,7 +59,7 @@ const PageContent = () => {
             alignItems: 'flex-start',
             justifyContent: 'center',
         }}>
-            <Typography variant={"h4"} className={"mb-4"}>
+            <Typography variant={"h5"} className={"mb-4"}>
                 Hi!
             </Typography>
             <Typography variant={"h5"} className={"mb-4"}>This is a toolkit to help develop your AI coach/advisors
@@ -67,7 +67,7 @@ const PageContent = () => {
                 or you decide whether to adopt one, for you to
                 identify what actions you can take to develop your AI coach.
             </Typography>
-            <Typography variant={"body1"}> Click below for a tour on how this toolkit will help you </Typography>
+            <Typography variant={"h5"}> Click below for a tour on how this toolkit will help you </Typography>
             <Button variant="outlined" color="primary" onClick={handleStartTour} sx={{marginTop: 2}}>
                 Click here to learn more
             </Button>
