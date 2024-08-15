@@ -1,7 +1,7 @@
 'use client'
 
 import React from "react";
-import Layout from "@/pages/layout";
+import Layout from "@//pages/Layout";
 import {ThemeProvider} from '@mui/material/styles';
 import theme from '@/themes/theme';
 import {RootStoreProvider} from "@/stores/RootStore";
