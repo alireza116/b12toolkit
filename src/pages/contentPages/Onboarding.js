@@ -1,11 +1,16 @@
 import {Container, Typography} from "@mui/material";
 import {useTheme} from "@mui/material/styles";
+import {onboarding} from "@/data/content";
+import PageContentSections from "@/components/PageContentSections/PageContentSections";
 
 const PageContent = () => {
+    const pageData = onboarding;
     const theme = useTheme()
     return (
         <Container maxWidth={"md"} className="w-full flex-column">
-            <Typography className={"mb-4"} variant={"h4"}>Onboarding Content Goes Here</Typography>
+            <PageContentSections pageData={pageData}>
+
+            </PageContentSections>
         </Container>
     );
 }
