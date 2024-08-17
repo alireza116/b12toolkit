@@ -226,7 +226,7 @@ const TaskCard = observer(({task, index}) => {
                         multiline
                         margin="normal"
                     />
-                    <Button onClick={handleUpdateDescription} variant="contained" color="primary">
+                    <Button onClick={handleUpdateDescription} variant="contained" color="neutral">
                         Update
                     </Button>
                 </Box>
@@ -257,7 +257,7 @@ const TaskCard = observer(({task, index}) => {
                         error={!!riskError}
                         helperText={riskError}
                     />
-                    <Button onClick={handleAddRisk} variant="contained" color="primary">
+                    <Button onClick={handleAddRisk} variant="contained" color="neutral">
                         Add
                     </Button>
                 </Box>
@@ -324,7 +324,7 @@ const TaskCard = observer(({task, index}) => {
                         error={!!actionError}
                         helperText={actionError}
                     />
-                    <Button onClick={handleAddAction} variant="contained" color="primary">
+                    <Button onClick={handleAddAction} variant="contained" color="neutral">
                         Add
                     </Button>
                 </Box>

@@ -45,7 +45,7 @@ const TaskEditor = observer(({tabHeight}) => {
         <Stack className={"h-full"}>
             <Box
                 className={`h-[${tabHeight}px] flex justify-center align-middle pl-12 pr-12 p-4 `}>
-                <Button className={"create-task"} onClick={handleOpen} variant="outlined" fullWidth>
+                <Button className={"create-task"} onClick={handleOpen} variant="contained" color={"neutral"} fullWidth>
                     Create Task
                 </Button>
             </Box>
@@ -80,7 +80,7 @@ const TaskEditor = observer(({tabHeight}) => {
                         multiline
                         margin="normal"
                     />
-                    <Button onClick={handleCreateTask} variant="contained" color="primary">
+                    <Button onClick={handleCreateTask} variant="contained" color="neutral">
                         Create
                     </Button>
                 </Box>
