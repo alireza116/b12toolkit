@@ -3,7 +3,7 @@ import {Box, Card as MuiCard, CardContent, Typography} from "@mui/material";
 import ExampleList from "@/components/ExampleList/ExampleList";
 import LinkChips from "@/components/Chips/LinkChips";
 
-const ContentCard = ({title, body, examples, links, children}) => {
+const ContentCard = ({title, body, examples, links}) => {
     // const theme = useTheme();
     return (
         <div className={"w-full lg:w-1/2 pr-4 pb-4"}>

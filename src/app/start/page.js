@@ -8,7 +8,6 @@ const PageContent = () => {
     const theme = useTheme();
     const [steps, setSteps] = useState([
         {
-            disableBeacon: true,
             target: ".content-side",
             content: "In this part of the page you will read information about responsible AI development. It gives you a step-by-step guide to help you create your AI coach tool.",
         },
@@ -54,7 +53,7 @@ const PageContent = () => {
     };
 
     return (
-        <Container maxWidth={"md"} sx={{
+        <Container maxWidth={"lg"} sx={{
             display: 'flex',
             flexDirection: 'column',
             alignItems: 'flex-start',

@@ -1,18 +1,17 @@
 'use client'
-
 import React from "react";
-import Layout from "@/contentPages/Layout";
 import {ThemeProvider} from '@mui/material/styles';
 import theme from '@/themes/theme';
 import {RootStoreProvider} from "@/stores/RootStore";
+import TourProvider from "@/components/Tour/Tour";
 
 const AppRoot = ({children}) => {
     return (
         <ThemeProvider theme={theme}>
             <RootStoreProvider>
-                <Layout>
+                <TourProvider>
                     {children}
-                </Layout>
+                </TourProvider>
             </RootStoreProvider>
         </ThemeProvider>
     )

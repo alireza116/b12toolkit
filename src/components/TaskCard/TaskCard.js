@@ -96,6 +96,10 @@ const TaskCard = observer(({task, index}) => {
         taskStore.removeTask(index);
     };
 
+    const handleSetPriority = (priority) => {
+        taskStore.setPriority(index, priority);
+    };
+
     return (
         <Card className={`shadow-none w-full task-${index}`} sx={{background: theme.palette.background.default}}>
             <CardContent className="flex-row w-full">
@@ -124,7 +128,7 @@ const TaskCard = observer(({task, index}) => {
                     </div>
                     <h5>{task.description}</h5>
                 </div>
-                <div className={`flex flex-col align-middle justify-center task-${index}-risks`}>
+                <div className={` pb-2 flex flex-col align-middle justify-center task-${index}-risks border-b-2`}>
                     <div className={`flex justify-between items-center`}>
                         <Typography className={"mb-2"} variant="caption">Risks</Typography>
                         <IconButton
@@ -157,6 +161,43 @@ const TaskCard = observer(({task, index}) => {
                                 }}
                             />
                         ))}
+                    </div>
+                </div>
+                <div className={`pt-2 flex flex-col align-middle justify-center task-${index}-priority`}>
+                    <Typography className={"mb-2"} variant="caption">Priority</Typography>
+                    <div style={{display: 'flex', justifyContent: 'space-between', flexWrap: "wrap", gap: '8px 2px'}}>
+                        <Button
+                            size={"small"}
+                            variant={task.priority === 1 ? "contained" : "outlined"}
+                            color={task.priority === 1 ? "low" : "neutral"}
+                            onClick={() => handleSetPriority(1)}
+                        >
+                            Low
+                        </Button>
+                        <Button
+                            size={"small"}
+                            variant={task.priority === 2 ? "contained" : "outlined"}
+                            color={task.priority === 2 ? "medium" : "neutral"}
+                            onClick={() => handleSetPriority(2)}
+                        >
+                            Medium
+                        </Button>
+                        <Button
+                            size={"small"}
+                            variant={task.priority === 3 ? "contained" : "outlined"}
+                            color={task.priority === 3 ? "high" : "neutral"}
+                            onClick={() => handleSetPriority(3)}
+                        >
+                            High
+                        </Button>
+                        <Button
+                            size={"small"}
+                            variant={task.priority === 4 ? "contained" : "outlined"}
+                            color={task.priority === 4 ? "critical" : "neutral"}
+                            onClick={() => handleSetPriority(4)}
+                        >
+                            Critical
+                        </Button>
                     </div>
                 </div>
             </CardContent>

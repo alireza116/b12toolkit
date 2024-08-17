@@ -4,7 +4,7 @@ import {createTheme} from '@mui/material/styles';
 const colors = {
     primary: '#F58025', // Orange
     secondary: '#8BAF1F', // Dark Green
-    dark: '#222222', // Dark Blue/Black
+    dark: '#5d5d5d', // Dark Blue/Black
     light: '#F7F7F7', // Light Grey
     white: '#ffffff' // White
 };
@@ -70,7 +70,31 @@ const theme = createTheme({
         background: {
             default: colors.light,
             paper: colors.white,
+        },
+        neutral: {
+            main: colors.dark,
+            light: '#333333',
+            dark: '#111111',
+            contrastText: colors.light
+        },
+
+        critical: {
+            main: "#A12A2A",
+            contrastText: "#FFFFFF"
+        },
+        high: {
+            main: "#B96E2D",
+            contrastText: "#FFFFFF"
+        },
+        medium: {
+            main: "#B8A331",
+            contrastText: "#000000"
+        },
+        low: {
+            main: "#4A7851",
+            contrastText: "#FFFFFF"
         }
+
     },
 });
 

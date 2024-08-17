@@ -1,4 +1,3 @@
-// src/stores/TaskStore.js
 import {makeAutoObservable} from 'mobx';
 import Task from '@/stores/models/Task';
 import sampleTasks from '@/data/sampleTasks.js';
@@ -11,12 +10,11 @@ class TaskStore {
         // if (typeof window !== 'undefined') {
         //     this.loadTasksFromLocalStorage();
         // }
-
     }
 
     loadSampleTasks() {
         sampleTasks.forEach(taskData => {
-            const task = new Task(taskData.description);
+            const task = new Task(taskData.description, taskData.priority);
             taskData.risks.forEach(riskData => {
                 const risk = task.addRisk(riskData.description);
                 riskData.actions.forEach(actionData => {
@@ -27,8 +25,8 @@ class TaskStore {
         });
     }
 
-    addTask(description) {
-        const newTask = new Task(description);
+    addTask(description, priority = null) {
+        const newTask = new Task(description, priority);
         this.tasks.push(newTask);
         this.saveTasksToLocalStorage();
     }
@@ -41,6 +39,12 @@ class TaskStore {
     changeDescription(taskIndex, newDescription) {
         const task = this.tasks[taskIndex];
         task.description = newDescription;
+        this.saveTasksToLocalStorage();
+    }
+
+    setPriority(taskIndex, newPriority) {
+        const task = this.tasks[taskIndex];
+        task.setPriority(newPriority);
         this.saveTasksToLocalStorage();
     }
 
@@ -89,7 +93,7 @@ class TaskStore {
             if (tasksJson) {
                 const tasksArray = JSON.parse(tasksJson);
                 this.tasks = tasksArray.map(taskData => {
-                    const task = new Task(taskData.description);
+                    const task = new Task(taskData.description, taskData.priority);
                     taskData.risks.forEach(riskData => {
                         const risk = task.addRisk(riskData.description);
                         riskData.actions.forEach(actionData => {

@@ -1,4 +1,3 @@
-// src/models/TaskCard.js
 import {makeAutoObservable} from 'mobx';
 
 class Action {
@@ -34,9 +33,11 @@ class Risk {
 class Task {
     description;
     risks = [];
+    priority = null; // Default to null
 
-    constructor(description) {
+    constructor(description, priority = null) {
         this.description = description;
+        this.setPriority(priority);
         makeAutoObservable(this);
     }
 
@@ -48,6 +49,18 @@ class Task {
 
     removeRisk(index) {
         this.risks.splice(index, 1);
+    }
+
+    setPriority(priority) {
+        if (priority === null || [1, 2, 3, 4].includes(priority)) {
+            this.priority = priority;
+        } else {
+            throw new Error("Invalid priority value. Acceptable values are null, 1 (Low), 2 (Medium), 3 (High), 4 (Critical).");
+        }
+    }
+
+    getPriority() {
+        return this.priority;
     }
 }
 
