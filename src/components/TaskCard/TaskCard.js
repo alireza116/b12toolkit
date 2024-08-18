@@ -126,7 +126,7 @@ const TaskCard = observer(({task, index}) => {
                             <EditIcon/>
                         </IconButton>
                     </div>
-                    <h5>{task.description}</h5>
+                    <Typography variant={"h6"}>{task.description}</Typography>
                 </div>
                 <div className={` pb-2 flex flex-col align-middle justify-center task-${index}-risks border-b-2`}>
                     <div className={`flex justify-between items-center`}>

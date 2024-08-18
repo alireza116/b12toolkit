@@ -1,3 +1,4 @@
+// Ensure all imports are correct
 'use client'
 import {Inter} from "next/font/google";
 import "./globals.css";
@@ -10,11 +11,10 @@ import SmartToyIcon from "@mui/icons-material/SmartToy";
 import SchoolIcon from "@mui/icons-material/School";
 import PsychologyIcon from "@mui/icons-material/Psychology";
 import RepeatIcon from "@mui/icons-material/Repeat";
-import Link from "next/link";
-import {usePathname} from 'next/navigation';
+import Link from 'next/link'
+import {usePathname} from "next/navigation";
 import TaskEditor from "@/components/TaskEditor/TaskEditor";
 import {useTheme} from "@mui/material/styles";
-
 import PropTypes from "prop-types";
 import NavBar from "@/components/NavBar/NavBar";
 
@@ -46,10 +46,9 @@ export default function RootLayout({children}) {
     const [value, setValue] = useState(0);
     const navBarRef = useRef(null);
     const [navBarHeight, setNavBarHeight] = useState(0);
-    console.log(navBarHeight)
+
     useEffect(() => {
         const handleResize = () => {
-            console.log("test");
             if (navBarRef.current) {
                 setNavBarHeight(navBarRef.current.offsetHeight);
             }
@@ -92,6 +91,7 @@ export default function RootLayout({children}) {
     const isMdOrLarger = useMediaQuery(theme.breakpoints.up('md'));
     const taskEditorWidth = isMdOrLarger ? '25%' : '0'; // 1/6 when md or larger, hidden when smaller
     const contentWidth = isMdOrLarger ? "75%" : "100%";
+
     return (
         <html lang="en">
         <body className={inter.className}>
@@ -129,7 +129,6 @@ export default function RootLayout({children}) {
                         <Box
                             className={"pl-12 p-4 h-full w-full overflow-y-auto"}
                             style={{backgroundColor: bgColor}} id="content-side">
-
                             {children}
                         </Box>
                     </Stack>

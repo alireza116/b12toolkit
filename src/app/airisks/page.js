@@ -1,5 +1,5 @@
 import {Container} from "@mui/material";
-import {aiRisks} from "@/data/content-links";
+import {aiRisks} from "@/data/content-links.js";
 import PageContentSections from "@/components/PageContentSections/PageContentSections";
 
 const PageContent = () => {

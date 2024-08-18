@@ -4,9 +4,13 @@
   "private": true,
   "scripts": {
     "dev": "next dev",
+    "prebuild": "npm run generate-js-airtable",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "generate-js-airtable": "node scripts/generate-js-airtable.mjs",
+    "generate-csvs": "node scripts/generate-csvs.mjs",
+    "generate-js": "node scripts/generate-js.mjs"
   },
   "dependencies": {
     "@emotion/react": "^11.13.0",
@@ -15,6 +19,10 @@
     "@mui/lab": "^5.0.0-alpha.173",
     "@mui/material": "^5.16.6",
     "@reactour/tour": "^3.7.0",
+    "airtable": "^0.12.2",
+    "csv-parser": "^3.0.0",
+    "csv-writer": "^1.6.0",
+    "dotenv": "^16.4.5",
     "mobx": "^6.13.1",
     "mobx-react": "^9.1.1",
     "next": "14.2.5",

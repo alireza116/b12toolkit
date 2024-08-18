@@ -30,6 +30,10 @@ const steps = [
         content: "These are the risks associated with the task. You can click on a chip. By clicking a chip, you can add actions associated to it. The circle on the left side shows the number of actions assigned to mitigate or prevent this risk.",
     },
     {
+        selector: ".task-0-priority",
+        content: "You can click on these buttons to set the priorities for the task. You can update this as you learn more responsible development, specific to the task."
+    },
+    {
         selector: ".foundations-tab",
         content: "Now you can click on the foundations tab to move to the next step. And start the process!",
     },
