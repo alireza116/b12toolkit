@@ -26,7 +26,7 @@ const linksTable = 'Links';
 
 // Define the output file path
 const baseDir = path.resolve('./src/data/');
-const outputFilePath = path.join(baseDir, 'content-links.js');
+const outputFilePath = path.join(baseDir, 'content-links.mjs');
 
 // Utility function to fetch all records from a table, preserving order
 const fetchRecords = async (table) => {
@@ -109,11 +109,11 @@ const generateContentLinks = async () => {
             return `export const ${pageKey} = ${JSON.stringify(dataStructure[pageKey], null, 4)};`;
         }).join('\n\n');
 
-        // Write the content to the content-links.js file
+        // Write the content to the content-links.mjs file
         fs.writeFileSync(outputFilePath, jsContent, 'utf-8');
         console.log(`File ${outputFilePath} has been created successfully.`);
     } catch (error) {
-        console.error('Error generating content-links.js:', error);
+        console.error('Error generating content-links.mjs:', error);
     }
 };
 

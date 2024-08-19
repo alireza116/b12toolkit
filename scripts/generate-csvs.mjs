@@ -5,8 +5,8 @@ import {createObjectCsvWriter as csvWriter} from 'csv-writer';
 // Set a custom base directory
 const baseDir = path.resolve('./src/data/'); // Replace with your desired directory path
 
-// Replace 'content-links.js' with the path to your actual generateCsvs file, relative to the baseDir
-const dataFilePath = path.join(baseDir, 'content-links.js');
+// Replace 'content-links.mjs' with the path to your actual generateCsvs file, relative to the baseDir
+const dataFilePath = path.join(baseDir, 'content-links.mjs');
 
 // Dynamically import all exported variables from the generateCsvs file
 const generateCsvs = await import(`file://${dataFilePath}`);

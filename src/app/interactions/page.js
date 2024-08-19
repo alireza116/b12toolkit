@@ -3,11 +3,10 @@ import {onboarding} from "@/data/content-links.js";
 import PageContentSections from "@/components/PageContentSections/PageContentSections";
 
 const PageContent = () => {
-    const pageData = onboarding;
 
     return (
         <Container maxWidth={"lg"} className="w-full flex-column">
-            <PageContentSections pageData={pageData}>
+            <PageContentSections pageData={onboarding}>
 
             </PageContentSections>
         </Container>

@@ -7,8 +7,6 @@ const PageContent = () => {
     return (
         <Container maxWidth={"lg"} className="w-full">
             <PageContentSections pageData={aiRisks}></PageContentSections>
-
-
         </Container>
     );
 }

@@ -13,7 +13,7 @@ const examplesFilePath = path.join(baseDir, 'output', 'examples.csv');
 const linksFilePath = path.join(baseDir, 'output', 'links.csv');
 
 // Define the output file path
-const outputFilePath = path.join(baseDir, 'output', 'content-links.js');
+const outputFilePath = path.join(baseDir, 'output', 'content-links.mjs');
 
 // Utility function to read CSV files
 const readCsv = (filePath) => {
@@ -27,7 +27,7 @@ const readCsv = (filePath) => {
     });
 };
 
-// Main function to generate the content-links.js file
+// Main function to generate the content-links.mjs file
 const generateContentLinks = async () => {
     try {
         // Read all the CSV files
@@ -98,11 +98,11 @@ const generateContentLinks = async () => {
             return `export const ${pageKey} = ${JSON.stringify(dataStructure[pageKey], null, 4)};`;
         }).join('\n\n');
 
-        // Write the content to the content-links.js file
+        // Write the content to the content-links.mjs file
         fs.writeFileSync(outputFilePath, jsContent, 'utf-8');
         console.log(`File ${outputFilePath} has been created successfully.`);
     } catch (error) {
-        console.error('Error generating content-links.js:', error);
+        console.error('Error generating content-links.mjs:', error);
     }
 };
 

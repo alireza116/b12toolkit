@@ -4,13 +4,15 @@
   "private": true,
   "scripts": {
     "dev": "next dev",
-    "prebuild": "npm run generate-js-airtable",
+    "prebuild": "npm run generate-js-contentful",
     "build": "next build",
     "start": "next start",
     "lint": "next lint",
     "generate-js-airtable": "node scripts/generate-js-airtable.mjs",
     "generate-csvs": "node scripts/generate-csvs.mjs",
-    "generate-js": "node scripts/generate-js.mjs"
+    "generate-js": "node scripts/generate-js.mjs",
+    "migrate-contentful": "node scripts/migrate-contentful.mjs",
+    "generate-js-contentful": "node scripts/generate-js-contentful.mjs"
   },
   "dependencies": {
     "@emotion/react": "^11.13.0",
@@ -20,6 +22,7 @@
     "@mui/material": "^5.16.6",
     "@reactour/tour": "^3.7.0",
     "airtable": "^0.12.2",
+    "contentful-management": "^11.31.6",
     "csv-parser": "^3.0.0",
     "csv-writer": "^1.6.0",
     "dotenv": "^16.4.5",
