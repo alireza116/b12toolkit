@@ -4,7 +4,7 @@
   "private": true,
   "scripts": {
     "dev": "next dev",
-    "prebuild": "node scripts/generate-js-contentful.js",
+    "prebuild": "node scripts/generate-js-contentful.mjs",
     "build": "next build",
     "start": "next start",
     "lint": "next lint",
@@ -12,7 +12,7 @@
     "generate-csvs": "node scripts/generate-csvs.mjs",
     "generate-js": "node scripts/generate-js.mjs",
     "migrate-contentful": "node scripts/migrate-contentful.mjs",
-    "generate-js-contentful": "node scripts/generate-js-contentful.js"
+    "generate-js-contentful": "node scripts/generate-js-contentful.mjs"
   },
   "engines": {
     "node": "20.3.X"

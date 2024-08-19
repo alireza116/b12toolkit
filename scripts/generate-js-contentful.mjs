@@ -1,8 +1,10 @@
 console.log("getting data")
-const contentful = require('contentful');
-const fs = require('fs');
-const path = require('path');
-const dotenv = require('dotenv');
+
+import contentful from 'contentful';
+import fs from 'fs';
+import path from 'path';
+import dotenv from 'dotenv';
+
 console.log("starting")
 try {
     dotenv.config();
