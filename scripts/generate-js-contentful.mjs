@@ -80,6 +80,6 @@ async function generateContentLinks() {
 }
 
 // Run the script
-generateContentLinks().catch(console.error);
+generateContentLinks();
 
-export default generateContentLinks;
+// export default generateContentLinks;
