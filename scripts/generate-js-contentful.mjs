@@ -1,22 +1,24 @@
-import contentful from 'contentful-management';
+import contentful from 'contentful';
 import fs from 'fs';
 import path from 'path';
 import dotenv from 'dotenv';
 
 dotenv.config();
 
-// Initialize the Contentful Management client
+// Initialize the Contentful Delivery client
 const client = contentful.createClient({
-    accessToken: process.env.CONTENTFUL_MANAGEMENT_ACCESS_TOKEN,
+    space: process.env.CONTENTFUL_SPACE_ID,
+    accessToken: process.env.CONTENTFUL_DELIVERY_ACCESS_TOKEN,
 });
 
-async function generateContentLinks() {
-    // Fetch the space and environment
-    const space = await client.getSpace(process.env.CONTENTFUL_SPACE_ID);
-    const environment = await space.getEnvironment('master');
+function getFieldValue(field, locale = 'en-US') {
+    // Check if the field is localized
+    return field && (field[locale] || field);
+}
 
-    // Fetch all pages
-    const entries = await environment.getEntries({
+async function generateContentLinks() {
+    // Fetch all entries of type 'page'
+    const entries = await client.getEntries({
         content_type: 'page',
         include: 3, // Adjust the level of depth if needed (3 levels deep)
     });
@@ -24,38 +26,47 @@ async function generateContentLinks() {
     const contentLinks = {};
 
     for (const page of entries.items) {
-        const pageTitle = page.fields.title['en-US'].replace(/\s+/g, '');
+        const pageTitle = getFieldValue(page.fields.title)
+            ? getFieldValue(page.fields.title).replace(/\s+/g, '')
+            : `UntitledPage_${page.sys.id}`;
+
         const sections = [];
 
-        for (const sectionRef of page.fields.sections['en-US']) {
-            // Fetch the section entry explicitly
-            const section = await environment.getEntry(sectionRef.sys.id);
-            const contentCards = [];
+        const pageSections = getFieldValue(page.fields.sections);
+        if (pageSections && Array.isArray(pageSections)) {
+            for (const sectionRef of pageSections) {
+                // Fetch the section entry explicitly
+                const section = await client.getEntry(sectionRef.sys.id);
+                const contentCards = [];
 
-            for (const contentRef of section.fields.content['en-US']) {
-                // Fetch the content entry explicitly
-                const content = await environment.getEntry(contentRef.sys.id);
-                contentCards.push({
-                    title: content.fields.title['en-US'],
-                    body: content.fields.body['en-US'],
-                    ...(content.fields.examples &&
-                        content.fields.examples['en-US'].length > 0 && {examples: content.fields.examples['en-US']}),
-                    ...(content.fields.links &&
-                        content.fields.links['en-US'].length > 0 && {links: content.fields.links['en-US']}),
+                const sectionContent = getFieldValue(section.fields.content);
+                if (sectionContent && Array.isArray(sectionContent)) {
+                    for (const contentRef of sectionContent) {
+                        // Fetch the content entry explicitly
+                        const content = await client.getEntry(contentRef.sys.id);
+                        contentCards.push({
+                            title: getFieldValue(content.fields.title),
+                            body: getFieldValue(content.fields.body),
+                            ...(getFieldValue(content.fields.examples) &&
+                                getFieldValue(content.fields.examples).length > 0 && {examples: getFieldValue(content.fields.examples)}),
+                            ...(getFieldValue(content.fields.links) &&
+                                getFieldValue(content.fields.links).length > 0 && {links: getFieldValue(content.fields.links)}),
+                        });
+                    }
+                }
+
+                sections.push({
+                    title: getFieldValue(section.fields.title),
+                    content: contentCards,
                 });
             }
-
-            sections.push({
-                title: section.fields.title['en-US'],
-                content: contentCards,
-            });
         }
 
         contentLinks[pageTitle] = sections;
     }
 
     // Generate the content-links.js file
-    const contentLinksPath = path.join('./src/data/', 'content-links.js');
+    const contentLinksPath = path.join('./src/data', 'content-links.js');
 
     const contentLinksJs = Object.keys(contentLinks)
         .map(
@@ -70,3 +81,5 @@ async function generateContentLinks() {
 
 // Run the script
 generateContentLinks().catch(console.error);
+
+export default generateContentLinks;
