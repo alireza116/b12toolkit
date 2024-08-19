@@ -1,7 +1,7 @@
-import contentful from 'contentful';
-import fs from 'fs';
-import path from 'path';
-import dotenv from 'dotenv';
+const contentful = require('contentful');
+const fs = require('fs');
+const path = require('path');
+const dotenv = require('dotenv');
 
 dotenv.config();
 
@@ -66,7 +66,7 @@ async function generateContentLinks() {
     }
 
     // Generate the content-links.js file
-    const contentLinksPath = path.join('./src/data', 'content-links.js');
+    const contentLinksPath = path.join('./src/data/', 'content-links.js');
 
     const contentLinksJs = Object.keys(contentLinks)
         .map(
@@ -80,6 +80,5 @@ async function generateContentLinks() {
 }
 
 // Run the script
-generateContentLinks();
+generateContentLinks()
 
-// export default generateContentLinks;
