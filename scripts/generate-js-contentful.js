@@ -3,7 +3,12 @@ const fs = require('fs');
 const path = require('path');
 const dotenv = require('dotenv');
 
-dotenv.config();
+try {
+    dotenv.config();
+} catch (error) {
+    console.log(error)
+}
+// dotenv.config();
 
 // Initialize the Contentful Delivery client
 const client = contentful.createClient({
@@ -80,5 +85,5 @@ async function generateContentLinks() {
 }
 
 // Run the script
-generateContentLinks()
+generateContentLinks().catch(console.error);
 
