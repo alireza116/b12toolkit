@@ -1,8 +1,9 @@
+console.log("getting data")
 const contentful = require('contentful');
 const fs = require('fs');
 const path = require('path');
 const dotenv = require('dotenv');
-
+console.log("starting")
 try {
     dotenv.config();
 } catch (error) {

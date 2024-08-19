@@ -4,7 +4,7 @@
   "private": true,
   "scripts": {
     "dev": "next dev",
-    "prebuild": "npm run generate-js-contentful",
+    "prebuild": "node scripts/generate-js-contentful.js",
     "build": "next build",
     "start": "next start",
     "lint": "next lint",
@@ -15,7 +15,7 @@
     "generate-js-contentful": "node scripts/generate-js-contentful.js"
   },
   "engines": {
-    "node": "20.x"
+    "node": "20.3.X"
   },
   "dependencies": {
     "@emotion/react": "^11.13.0",
