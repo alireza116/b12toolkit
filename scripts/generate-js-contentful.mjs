@@ -1,61 +1,51 @@
-import contentful from 'contentful-management';
+import contentful from 'contentful';
 import fs from 'fs';
 import path from 'path';
 import dotenv from 'dotenv';
 
 dotenv.config();
 
-// Initialize the Contentful client
+// Initialize the Contentful client using the Content Delivery API
 const client = contentful.createClient({
-    accessToken: process.env.CONTENTFUL_MANAGEMENT_ACCESS_TOKEN,
+    space: process.env.CONTENTFUL_SPACE_ID,
+    accessToken: process.env.CONTENTFUL_DELIVERY_ACCESS_TOKEN,
 });
 
-async function fetchContent(environment, contentType) {
-    const entries = await environment.getEntries({content_type: contentType});
-    return entries.items;
-}
-
-function formatContentCard(content) {
-    const card = {
-        title: content.fields.title['en-US'],
-        body: content.fields.body['en-US'],
-    };
-
-    if (content.fields.examples && content.fields.examples['en-US'].length > 0) {
-        card.examples = content.fields.examples['en-US'];
-    }
-
-    if (content.fields.links && content.fields.links['en-US'].length > 0) {
-        card.links = content.fields.links['en-US'];
-    }
-
-    return card;
-}
-
 async function generateContentLinks() {
-    const space = await client.getSpace(process.env.CONTENTFUL_SPACE_ID);
-    const environment = await space.getEnvironment('master');
-
-    // Fetch data from Contentful
-    const pages = await fetchContent(environment, 'page');
+    // Fetch all pages along with their linked sections and content cards in one call
+    const response = await client.getEntries({
+        content_type: 'page',
+        include: 3, // Adjust the level of depth if needed (3 levels deep)
+    });
 
     const contentLinks = {};
 
-    for (const page of pages) {
-        const pageTitle = page.fields.title['en-US'].replace(/\s+/g, '');
+    for (const page of response.items) {
+        const pageTitle = page.fields.title.replace(/\s+/g, '');
         const sections = [];
 
-        for (const sectionRef of page.fields.sections['en-US']) {
-            const section = await environment.getEntry(sectionRef.sys.id);
+        for (const sectionRef of page.fields.sections) {
+            const section = response.includes.Entry.find(
+                (entry) => entry.sys.id === sectionRef.sys.id
+            );
             const contentCards = [];
 
-            for (const contentRef of section.fields.content['en-US']) {
-                const content = await environment.getEntry(contentRef.sys.id);
-                contentCards.push(formatContentCard(content));
+            for (const contentRef of section.fields.content) {
+                const content = response.includes.Entry.find(
+                    (entry) => entry.sys.id === contentRef.sys.id
+                );
+                contentCards.push({
+                    title: content.fields.title,
+                    body: content.fields.body,
+                    ...(content.fields.examples &&
+                        content.fields.examples.length > 0 && {examples: content.fields.examples}),
+                    ...(content.fields.links &&
+                        content.fields.links.length > 0 && {links: content.fields.links}),
+                });
             }
 
             sections.push({
-                title: section.fields.title['en-US'],
+                title: section.fields.title,
                 content: contentCards,
             });
         }
@@ -67,7 +57,10 @@ async function generateContentLinks() {
     const contentLinksPath = path.join('./src/data/', 'content-links.js');
 
     const contentLinksJs = Object.keys(contentLinks)
-        .map(key => `export const ${key} = ${JSON.stringify(contentLinks[key], null, 2)};`)
+        .map(
+            (key) =>
+                `export const ${key} = ${JSON.stringify(contentLinks[key], null, 2)};`
+        )
         .join('\n\n');
 
     fs.writeFileSync(contentLinksPath, contentLinksJs);

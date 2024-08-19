@@ -1,278 +1,3 @@
-export const studentCoach = [
-  {
-    "title": "Responsible AI coaching should adapt to individual student circumstances.",
-    "content": [
-      {
-        "title": "Design clear mechanisms to balance student access to human coaches.",
-        "body": "Some coaching tasks are more suitable for human contact. Refer to coaching best practices to determine whether a student would benefit from higher contact with human coaches. Clear mechanisms should be implemented to ensure that students can easily access human coaches when necessary.",
-        "examples": [
-          "Implement a prominent 'Request Human Coach' button in the AI interface.",
-          "Develop a feedback form for students to express their need for human interaction.",
-          "Set up automatic escalation for discussions involving sensitive topics such as self-harm or academic probation.",
-          "Develop a user preference setting for the frequency of human coach check-ins."
-        ]
-      },
-      {
-        "title": "Consider creating mechanisms for students to set their own goals, preferences, and boundaries within the AI coach.",
-        "body": "Consider the importance of preserving and enhancing student agency, and explore how the tool may offer features that support this.",
-        "examples": [
-          "Frequency of check-ins or reminders",
-          "Topics they're comfortable discussing with AI vs. human coaches",
-          "Deadline sensitivity (how early to start reminding about due dates)",
-          "Level of detail in explanations (brief overviews vs. in-depth discussions)",
-          "Cultural or religious considerations in advice and examples",
-          "Privacy settings for sharing their data"
-        ]
-      }
-    ]
-  },
-  {
-    "title": "Students, for various reasons, may refrain from discussing sensitive topics with the AI coach.",
-    "content": [
-      {
-        "title": "Provide assurances about privacy and security of any communications with the AI coach.",
-        "body": "Students' willingness to discuss sensitive topics with AI coach may be influenced by their perception of AI.",
-        "examples": [
-          "Allow students to define their comfort levels for discussing different sensitive topics.",
-          "Provide privacy statements, be clear about when and how student conversations are saved within the system.",
-          "Allow students to delete parts of their conversation."
-        ]
-      },
-      {
-        "title": "Identify a list of sensitive topics that would be automatically escalated to human coaches.",
-        "body": "AI responses to sensitive topics, if not carefully crafted, could potentially exacerbate student discomfort or stigma.",
-        "examples": [
-          "Mental health concerns (depression, anxiety, suicidal thoughts)",
-          "Physical health issues affecting academic performance",
-          "Substance abuse or addiction",
-          "Sexual harassment or assault",
-          "Discrimination or bullying",
-          "Family crises or domestic violence",
-          "Financial hardships affecting studies",
-          "Eating disorders",
-          "Struggles stemming from gender identity or sexual orientation",
-          "Grief and loss",
-          "Academic integrity violations",
-          "Visa or immigration status issues",
-          "Pregnancy or childcare challenges",
-          "Traumatic experiences affecting academic life",
-          "Severe academic struggles or potential dismissal"
-        ]
-      },
-      {
-        "title": "Design a mechanism to flag underlying crisis or reasons for human review.",
-        "body": "Students often do not explicitly explain the underlying reasons for their questions and those might be left ambiguous. The system should afford students to flag and contest responses and request direct action for a variety of reasons. However, sometimes students might feel reluctant to take direct action, design mechanisms to automatically flag such cases and reach out to students.",
-        "examples": [
-          "Keyword analysis for crisis-related terms or phrases",
-          "Detecting sudden changes in student activity patterns",
-          "Sentiment analysis to detect prolonged negative emotions",
-          "Tracking sudden drops in academic performance or engagement",
-          "Monitoring for repeated questions about coping strategies",
-          "Detection of social isolation indicators in student's descriptions",
-          "Detecting expressions of hopelessness or worthlessness"
-        ]
-      }
-    ]
-  },
-  {
-    "title": "AI coaching should accommodate diverse levels of familiarity with college-related terminology.",
-    "content": [
-      {
-        "title": "In the absence of a human coach, readily make definitions and terms available to students as they appear in conversations with the AI coach.",
-        "body": "Students may encounter unfamiliar terminology during AI coaching sessions, potentially hindering their understanding if immediate clarification is not available."
-      },
-      {
-        "title": "Maintain a balance between providing necessary explanations and encouraging students to express need for clarifications.",
-        "body": "Students may be hesitant to express unfamiliarity with terms when they don’t understand something. Finding the right balance between offering explanations and prompting students to ask questions helps prevent misunderstandings and promotes active engagement."
-      }
-    ]
-  },
-  {
-    "title": " Students might have different preferences for conversation tones and communication styles.",
-    "content": [
-      {
-        "title": "Evaluate whether different tones or adapting tones are useful strategies for your student body across different demographics.",
-        "body": "The formality level of communication can impact a student's comfort and receptiveness.",
-        "examples": [
-          "Enable students to set their preferred communication tone (formal, casual, motivational, etc.).",
-          "If assumptions are made based on existing data, the system should transparently communicate those assumptions."
-        ]
-      },
-      {
-        "title": "Create a range of AI communication styles for different coaching contexts, while allowing students to customize their preferences.",
-        "body": "The most effective tone for AI coaching may vary based on the subject or task."
-      }
-    ]
-  },
-  {
-    "title": "Focus on developing students' problem-solving skills and decision-making abilities, rather than simply providing ready-made answers.",
-    "content": [
-      {
-        "title": "For appropriate tasks, refer to coaching best practices to create interactions that motivate students to engage in problem solving.",
-        "body": "Collaborative problem-solving and student agency are essential in student success."
-      },
-      {
-        "title": "Provide resources and information that enable students to take action independently when appropriate.",
-        "body": "Coaching is about empowering students to make their own decisions."
-      }
-    ]
-  }
-];
-
-export const ongoing = [
-  {
-    "title": "Always and continuously challenge your assumptions.",
-    "content": [
-      {
-        "title": "Develop a diverse ethics advisory board, including educators, AI experts, ethicists, and student representatives, to periodically challenge and refine guidelines for responsible AI coaching.",
-        "body": "Assumptions about responsible practices might unintentionally prioritize certain communication styles or outcomes over others."
-      },
-      {
-        "title": "Establish a regular 'ethical review cycle' where core assumptions about responsible AI coaching practices are systematically examined and updated based on the latest research and expert opinions.",
-        "body": "Notions of responsible AI coaching can evolve rapidly with technological advancements and changing educational paradigms."
-      }
-    ]
-  },
-  {
-    "title": "Some risks and issues in AI coaching are unknown or emerge over time, so  responsible AI considerations should evolve.",
-    "content": [
-      {
-        "title": "Regularly monitor and update the risks for your tasks.",
-        "body": "Responsible AI policies must evolve to address newly identified risks. Continuous auditing and monitoring is crucial for identifying emerging risks in AI coaching systems. This can lead to new prevention and mitigation actions. You can implement an ongoing monitoring schedule that regularly assesses the AI coaching system's performance."
-      },
-      {
-        "title": "Create an internal or collaborate with an independent auditing board with diverse expertise for periodic reviews.",
-        "body": "An independent or external auditing board provides valuable oversight and risk assessment."
-      }
-    ]
-  }
-];
-
-export const onboarding = [
-  {
-    "title": "Based on their existing attitudes, students might respond differently to an AI coach.",
-    "content": [
-      {
-        "title": "Consider the varying degrees of anthropomorphism, from minimal human-like attributes to highly realistic human characteristics, when designing the AI coach.",
-        "body": "Different degrees of anthropomorphism in designing an AI coach can affect student engagement, and trust.",
-        "links": [
-          "https://storage.googleapis.com/deepmind-media/DeepMind.com/Blog/ethics-of-advanced-ai-assistants/the-ethics-of-advanced-ai-assistants-2024-i.pdf#page=99.274"
-        ]
-      },
-      {
-        "title": "Assess and address students' preconceptions about AI before engagement. Create strategies for helping students who might over rely on AI or might have a natural deterrence towards it.",
-        "body": "Students’ existing attitudes towards AI might vary and impact their trust. Understanding these preconceptions helps tailor the introduction and use of AI coaching to individual needs.",
-        "examples": [
-          "Perceived knowledge of AI",
-          "Attitudes towards AI",
-          "Perceived social norms regarding AI",
-          "Perceived ease of use of AI",
-          "Perceived usefulness of AI",
-          "Intention to use AI"
-        ],
-        "links": [
-          "https://journals.sagepub.com/doi/full/10.1177/14757257211037149",
-          "https://www.microsoft.com/en-us/research/uploads/prodnew/2024/03/GenAI_AppropriateReliance_Published2024-3-21.pdf"
-        ]
-      }
-    ]
-  },
-  {
-    "title": " First impressions shape students’ trust and engagement with the AI coach. Here are some suggestions:",
-    "content": [
-      {
-        "title": "Evaluate the necessity of human facilitation during AI coach onboarding to establish trust, set clear expectations, and address initial concerns.",
-        "body": "First impressions matter. A well-designed onboarding process, potentially involving human guidance, can significantly impact how students perceive and use the AI coach throughout their academic journey."
-      },
-      {
-        "title": "Provide necessary information about the state of the AI coach. But too much information might be neglected. Allow students to dig deep if they want to.",
-        "body": "Transparency is crucial, but too much information upfront can be overwhelming. A tiered system allows students to access basic details easily while giving them the option to explore more in-depth information if they choose.",
-        "links": [
-          "https://oecd.ai/en/dashboards/ai-principles/P7",
-          "https://www.microsoft.com/en-us/research/uploads/prod/2023/05/RAI-MM-for-PDF-printing-PUBLISHED-May-17.pdf#page=34.09",
-          "https://ai.google.dev/responsible/docs/design#transparency-artifacts"
-        ]
-      }
-    ]
-  },
-  {
-    "title": "Coaching frequently involves repeated interactions that cannot be completed in a single session. Here is what to consider:",
-    "content": [
-      {
-        "title": "Consider what tasks need ongoing repeated interactions, what data is needed, and the security and privacy of those needed data.",
-        "body": "Trust is built over time. Effective coaching requires identifying specific tasks that benefit from ongoing, repeated interactions. Develop a consistent follow-up schedule to ensure regular interactions with students."
-      },
-      {
-        "title": "Often, to provide a repeated and consistent experience, data from student-AI interactions need to be saved and referred to. Be transparent about what data is being saved, when it is being saved, and how it is used.",
-        "body": "Transparency and user agency are essential to responsible AI practices."
-      },
-      {
-        "title": "Provide necessary assurances to students through education, interface, or explanations that saved data is secure.",
-        "body": "Ensuring student data privacy is essential for maintaining trust and the integrity of ongoing coaching interactions."
-      }
-    ]
-  }
-];
-
-export const foundations = [
-  {
-    "title": "Let's start by mapping out your AI coach responsibilities and learn about the relevant guidelines.",
-    "content": [
-      {
-        "title": "List all the tasks that you expect the AI coach to offer.",
-        "body": "Identifying the specific tasks you expect the AI coach to perform is crucial for implementing targeted responsible AI practices. Different coaching tasks, such as setting goals, tracking progress, or providing emotional support, each come with unique ethical considerations and potential risks that need to be addressed individually.",
-        "examples": [
-          "Supporting a student who has lost their housing and needs help finding temporary shelter.",
-          "Assisting a student with an upcoming FAFSA deadline.",
-          "Assisting a student in balancing their coursework, part-time job, and social life."
-        ]
-      },
-      {
-        "title": "Review applicable AI regulations, guidelines, and core responsible AI concepts.",
-        "body": "This helps you build on best practices, use good ideas, and find new ways to be even better at helping students.",
-        "examples": [
-          "Accountability",
-          "Transparency",
-          "Safety",
-          "Privacy"
-        ],
-        "links": [
-          "https://docs.google.com/presentation/d/1KfhUKTbX91nQTrsgvR2zTXdTKypPayyvoUadq6kH24o/edit#slide=id.p"
-        ]
-      }
-    ]
-  },
-  {
-    "title": "Gather your stakeholders to go through the next steps with you. Here are some suggestions:",
-    "content": [
-      {
-        "title": "AI Developers",
-        "body": "AI Developers can provide technical insights on the AI system's capabilities, limitations, and potential risks, ensuring that the next steps are technologically feasible and aligned with responsible AI practices."
-      },
-      {
-        "title": "Coaches/ advisors",
-        "body": "Coaches can offer valuable insights from their direct experience with students, helping to shape AI coaching strategies and identify potential risks or pitfalls for each coaching task based on their real-world interactions."
-      },
-      {
-        "title": "UX Designers and Researchers",
-        "body": " UX Designers and Researchers can contribute user-centered perspectives, ensuring that the next steps prioritize student needs, preferences, and potential usability concerns in the AI coaching interface."
-      },
-      {
-        "title": "Executives",
-        "body": " Executives provide strategic direction, allocate necessary resources, and ensure alignment between the AI coaching initiative and the organization's overall mission and goals."
-      },
-      {
-        "title": "IHE Admins",
-        "body": " Higher education administrators can offer insights into institutional needs, regulatory requirements, and student support priorities, helping tailor the AI coaching system to meet specific campus demands and compliance standards."
-      },
-      {
-        "title": "Students",
-        "body": " Students can provide valuable feedback on the AI coaching system's usability, relevance, and effectiveness, ensuring that the next steps address their unique needs, preferences, and expectations."
-      }
-    ]
-  }
-];
-
 export const aiRisks = [
   {
     "title": "Here you are going to take a first look at the risks for each AI coaching task.",
@@ -522,6 +247,281 @@ export const aiRisks = [
           "Establish thresholds for acceptable error rates and set protocols for intervention if those thresholds are exceeded.",
           "Ensure that monitoring data is regularly reviewed by human oversight teams to identify trends and areas needing improvement."
         ]
+      }
+    ]
+  }
+];
+
+export const foundations = [
+  {
+    "title": "Let's start by mapping out your AI coach responsibilities and learn about the relevant guidelines.",
+    "content": [
+      {
+        "title": "List all the tasks that you expect the AI coach to offer.",
+        "body": "Identifying the specific tasks you expect the AI coach to perform is crucial for implementing targeted responsible AI practices. Different coaching tasks, such as setting goals, tracking progress, or providing emotional support, each come with unique ethical considerations and potential risks that need to be addressed individually.",
+        "examples": [
+          "Supporting a student who has lost their housing and needs help finding temporary shelter.",
+          "Assisting a student with an upcoming FAFSA deadline.",
+          "Assisting a student in balancing their coursework, part-time job, and social life."
+        ]
+      },
+      {
+        "title": "Review applicable AI regulations, guidelines, and core responsible AI concepts.",
+        "body": "This helps you build on best practices, use good ideas, and find new ways to be even better at helping students.",
+        "examples": [
+          "Accountability",
+          "Transparency",
+          "Safety",
+          "Privacy"
+        ],
+        "links": [
+          "https://docs.google.com/presentation/d/1KfhUKTbX91nQTrsgvR2zTXdTKypPayyvoUadq6kH24o/edit#slide=id.p"
+        ]
+      }
+    ]
+  },
+  {
+    "title": "Gather your stakeholders to go through the next steps with you. Here are some suggestions:",
+    "content": [
+      {
+        "title": "AI Developers",
+        "body": "AI Developers can provide technical insights on the AI system's capabilities, limitations, and potential risks, ensuring that the next steps are technologically feasible and aligned with responsible AI practices."
+      },
+      {
+        "title": "Coaches/ advisors",
+        "body": "Coaches can offer valuable insights from their direct experience with students, helping to shape AI coaching strategies and identify potential risks or pitfalls for each coaching task based on their real-world interactions."
+      },
+      {
+        "title": "UX Designers and Researchers",
+        "body": " UX Designers and Researchers can contribute user-centered perspectives, ensuring that the next steps prioritize student needs, preferences, and potential usability concerns in the AI coaching interface."
+      },
+      {
+        "title": "Executives",
+        "body": " Executives provide strategic direction, allocate necessary resources, and ensure alignment between the AI coaching initiative and the organization's overall mission and goals."
+      },
+      {
+        "title": "IHE Admins",
+        "body": " Higher education administrators can offer insights into institutional needs, regulatory requirements, and student support priorities, helping tailor the AI coaching system to meet specific campus demands and compliance standards."
+      },
+      {
+        "title": "Students",
+        "body": " Students can provide valuable feedback on the AI coaching system's usability, relevance, and effectiveness, ensuring that the next steps address their unique needs, preferences, and expectations."
+      }
+    ]
+  }
+];
+
+export const onboarding = [
+  {
+    "title": "Based on their existing attitudes, students might respond differently to an AI coach.",
+    "content": [
+      {
+        "title": "Consider the varying degrees of anthropomorphism, from minimal human-like attributes to highly realistic human characteristics, when designing the AI coach.",
+        "body": "Different degrees of anthropomorphism in designing an AI coach can affect student engagement, and trust.",
+        "links": [
+          "https://storage.googleapis.com/deepmind-media/DeepMind.com/Blog/ethics-of-advanced-ai-assistants/the-ethics-of-advanced-ai-assistants-2024-i.pdf#page=99.274"
+        ]
+      },
+      {
+        "title": "Assess and address students' preconceptions about AI before engagement. Create strategies for helping students who might over rely on AI or might have a natural deterrence towards it.",
+        "body": "Students’ existing attitudes towards AI might vary and impact their trust. Understanding these preconceptions helps tailor the introduction and use of AI coaching to individual needs.",
+        "examples": [
+          "Perceived knowledge of AI",
+          "Attitudes towards AI",
+          "Perceived social norms regarding AI",
+          "Perceived ease of use of AI",
+          "Perceived usefulness of AI",
+          "Intention to use AI"
+        ],
+        "links": [
+          "https://journals.sagepub.com/doi/full/10.1177/14757257211037149",
+          "https://www.microsoft.com/en-us/research/uploads/prodnew/2024/03/GenAI_AppropriateReliance_Published2024-3-21.pdf"
+        ]
+      }
+    ]
+  },
+  {
+    "title": " First impressions shape students’ trust and engagement with the AI coach. Here are some suggestions:",
+    "content": [
+      {
+        "title": "Evaluate the necessity of human facilitation during AI coach onboarding to establish trust, set clear expectations, and address initial concerns.",
+        "body": "First impressions matter. A well-designed onboarding process, potentially involving human guidance, can significantly impact how students perceive and use the AI coach throughout their academic journey."
+      },
+      {
+        "title": "Provide necessary information about the state of the AI coach. But too much information might be neglected. Allow students to dig deep if they want to.",
+        "body": "Transparency is crucial, but too much information upfront can be overwhelming. A tiered system allows students to access basic details easily while giving them the option to explore more in-depth information if they choose.",
+        "links": [
+          "https://oecd.ai/en/dashboards/ai-principles/P7",
+          "https://www.microsoft.com/en-us/research/uploads/prod/2023/05/RAI-MM-for-PDF-printing-PUBLISHED-May-17.pdf#page=34.09",
+          "https://ai.google.dev/responsible/docs/design#transparency-artifacts"
+        ]
+      }
+    ]
+  },
+  {
+    "title": "Coaching frequently involves repeated interactions that cannot be completed in a single session. Here is what to consider:",
+    "content": [
+      {
+        "title": "Consider what tasks need ongoing repeated interactions, what data is needed, and the security and privacy of those needed data.",
+        "body": "Trust is built over time. Effective coaching requires identifying specific tasks that benefit from ongoing, repeated interactions. Develop a consistent follow-up schedule to ensure regular interactions with students."
+      },
+      {
+        "title": "Often, to provide a repeated and consistent experience, data from student-AI interactions need to be saved and referred to. Be transparent about what data is being saved, when it is being saved, and how it is used.",
+        "body": "Transparency and user agency are essential to responsible AI practices."
+      },
+      {
+        "title": "Provide necessary assurances to students through education, interface, or explanations that saved data is secure.",
+        "body": "Ensuring student data privacy is essential for maintaining trust and the integrity of ongoing coaching interactions."
+      }
+    ]
+  }
+];
+
+export const ongoing = [
+  {
+    "title": "Always and continuously challenge your assumptions.",
+    "content": [
+      {
+        "title": "Develop a diverse ethics advisory board, including educators, AI experts, ethicists, and student representatives, to periodically challenge and refine guidelines for responsible AI coaching.",
+        "body": "Assumptions about responsible practices might unintentionally prioritize certain communication styles or outcomes over others."
+      },
+      {
+        "title": "Establish a regular 'ethical review cycle' where core assumptions about responsible AI coaching practices are systematically examined and updated based on the latest research and expert opinions.",
+        "body": "Notions of responsible AI coaching can evolve rapidly with technological advancements and changing educational paradigms."
+      }
+    ]
+  },
+  {
+    "title": "Some risks and issues in AI coaching are unknown or emerge over time, so  responsible AI considerations should evolve.",
+    "content": [
+      {
+        "title": "Regularly monitor and update the risks for your tasks.",
+        "body": "Responsible AI policies must evolve to address newly identified risks. Continuous auditing and monitoring is crucial for identifying emerging risks in AI coaching systems. This can lead to new prevention and mitigation actions. You can implement an ongoing monitoring schedule that regularly assesses the AI coaching system's performance."
+      },
+      {
+        "title": "Create an internal or collaborate with an independent auditing board with diverse expertise for periodic reviews.",
+        "body": "An independent or external auditing board provides valuable oversight and risk assessment."
+      }
+    ]
+  }
+];
+
+export const studentCoach = [
+  {
+    "title": "Responsible AI coaching should adapt to individual student circumstances.",
+    "content": [
+      {
+        "title": "Design clear mechanisms to balance student access to human coaches.",
+        "body": "Some coaching tasks are more suitable for human contact. Refer to coaching best practices to determine whether a student would benefit from higher contact with human coaches. Clear mechanisms should be implemented to ensure that students can easily access human coaches when necessary.",
+        "examples": [
+          "Implement a prominent 'Request Human Coach' button in the AI interface.",
+          "Develop a feedback form for students to express their need for human interaction.",
+          "Set up automatic escalation for discussions involving sensitive topics such as self-harm or academic probation.",
+          "Develop a user preference setting for the frequency of human coach check-ins."
+        ]
+      },
+      {
+        "title": "Consider creating mechanisms for students to set their own goals, preferences, and boundaries within the AI coach.",
+        "body": "Consider the importance of preserving and enhancing student agency, and explore how the tool may offer features that support this.",
+        "examples": [
+          "Frequency of check-ins or reminders",
+          "Topics they're comfortable discussing with AI vs. human coaches",
+          "Deadline sensitivity (how early to start reminding about due dates)",
+          "Level of detail in explanations (brief overviews vs. in-depth discussions)",
+          "Cultural or religious considerations in advice and examples",
+          "Privacy settings for sharing their data"
+        ]
+      }
+    ]
+  },
+  {
+    "title": "Students, for various reasons, may refrain from discussing sensitive topics with the AI coach.",
+    "content": [
+      {
+        "title": "Provide assurances about privacy and security of any communications with the AI coach.",
+        "body": "Students' willingness to discuss sensitive topics with AI coach may be influenced by their perception of AI.",
+        "examples": [
+          "Allow students to define their comfort levels for discussing different sensitive topics.",
+          "Provide privacy statements, be clear about when and how student conversations are saved within the system.",
+          "Allow students to delete parts of their conversation."
+        ]
+      },
+      {
+        "title": "Identify a list of sensitive topics that would be automatically escalated to human coaches.",
+        "body": "AI responses to sensitive topics, if not carefully crafted, could potentially exacerbate student discomfort or stigma.",
+        "examples": [
+          "Mental health concerns (depression, anxiety, suicidal thoughts)",
+          "Physical health issues affecting academic performance",
+          "Substance abuse or addiction",
+          "Sexual harassment or assault",
+          "Discrimination or bullying",
+          "Family crises or domestic violence",
+          "Financial hardships affecting studies",
+          "Eating disorders",
+          "Struggles stemming from gender identity or sexual orientation",
+          "Grief and loss",
+          "Academic integrity violations",
+          "Visa or immigration status issues",
+          "Pregnancy or childcare challenges",
+          "Traumatic experiences affecting academic life",
+          "Severe academic struggles or potential dismissal"
+        ]
+      },
+      {
+        "title": "Design a mechanism to flag underlying crisis or reasons for human review.",
+        "body": "Students often do not explicitly explain the underlying reasons for their questions and those might be left ambiguous. The system should afford students to flag and contest responses and request direct action for a variety of reasons. However, sometimes students might feel reluctant to take direct action, design mechanisms to automatically flag such cases and reach out to students.",
+        "examples": [
+          "Keyword analysis for crisis-related terms or phrases",
+          "Detecting sudden changes in student activity patterns",
+          "Sentiment analysis to detect prolonged negative emotions",
+          "Tracking sudden drops in academic performance or engagement",
+          "Monitoring for repeated questions about coping strategies",
+          "Detection of social isolation indicators in student's descriptions",
+          "Detecting expressions of hopelessness or worthlessness"
+        ]
+      }
+    ]
+  },
+  {
+    "title": "AI coaching should accommodate diverse levels of familiarity with college-related terminology.",
+    "content": [
+      {
+        "title": "In the absence of a human coach, readily make definitions and terms available to students as they appear in conversations with the AI coach.",
+        "body": "Students may encounter unfamiliar terminology during AI coaching sessions, potentially hindering their understanding if immediate clarification is not available."
+      },
+      {
+        "title": "Maintain a balance between providing necessary explanations and encouraging students to express need for clarifications.",
+        "body": "Students may be hesitant to express unfamiliarity with terms when they don’t understand something. Finding the right balance between offering explanations and prompting students to ask questions helps prevent misunderstandings and promotes active engagement."
+      }
+    ]
+  },
+  {
+    "title": " Students might have different preferences for conversation tones and communication styles.",
+    "content": [
+      {
+        "title": "Evaluate whether different tones or adapting tones are useful strategies for your student body across different demographics.",
+        "body": "The formality level of communication can impact a student's comfort and receptiveness.",
+        "examples": [
+          "Enable students to set their preferred communication tone (formal, casual, motivational, etc.).",
+          "If assumptions are made based on existing data, the system should transparently communicate those assumptions."
+        ]
+      },
+      {
+        "title": "Create a range of AI communication styles for different coaching contexts, while allowing students to customize their preferences.",
+        "body": "The most effective tone for AI coaching may vary based on the subject or task."
+      }
+    ]
+  },
+  {
+    "title": "Focus on developing students' problem-solving skills and decision-making abilities, rather than simply providing ready-made answers.",
+    "content": [
+      {
+        "title": "For appropriate tasks, refer to coaching best practices to create interactions that motivate students to engage in problem solving.",
+        "body": "Collaborative problem-solving and student agency are essential in student success."
+      },
+      {
+        "title": "Provide resources and information that enable students to take action independently when appropriate.",
+        "body": "Coaching is about empowering students to make their own decisions."
       }
     ]
   }
