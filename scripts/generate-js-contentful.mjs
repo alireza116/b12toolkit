@@ -68,4 +68,4 @@ async function generateContentLinks() {
 }
 
 // Run the script
-generateContentLinks().catch(console.error);
+generateContentLinks()
