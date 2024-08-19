@@ -14,6 +14,9 @@ try {
 // dotenv.config();
 
 // Initialize the Contentful Delivery client
+console.log(process.env.CONTENTFUL_SPACE_ID)
+console.log(process.env.CONTENTFUL_DELIVERY_ACCESS_TOKEN)
+
 const client = contentful.createClient({
     space: process.env.CONTENTFUL_SPACE_ID,
     accessToken: process.env.CONTENTFUL_DELIVERY_ACCESS_TOKEN,
@@ -26,11 +29,12 @@ function getFieldValue(field, locale = 'en-US') {
 
 async function generateContentLinks() {
     // Fetch all entries of type 'page'
+    console.log("generating content links")
     const entries = await client.getEntries({
         content_type: 'page',
         include: 3, // Adjust the level of depth if needed (3 levels deep)
     });
-
+    console.log(entries)
     const contentLinks = {};
 
     for (const page of entries.items) {
@@ -74,6 +78,7 @@ async function generateContentLinks() {
     }
 
     // Generate the content-links.js file
+    console.log("writing to js file")
     const contentLinksPath = path.join('./src/data/', 'content-links.js');
 
     const contentLinksJs = Object.keys(contentLinks)
