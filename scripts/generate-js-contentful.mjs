@@ -1,51 +1,52 @@
-import contentful from 'contentful';
+import contentful from 'contentful-management';
 import fs from 'fs';
 import path from 'path';
 import dotenv from 'dotenv';
 
 dotenv.config();
 
-// Initialize the Contentful client using the Content Delivery API
+// Initialize the Contentful Management client
 const client = contentful.createClient({
-    space: process.env.CONTENTFUL_SPACE_ID,
-    accessToken: process.env.CONTENTFUL_DELIVERY_ACCESS_TOKEN,
+    accessToken: process.env.CONTENTFUL_MANAGEMENT_ACCESS_TOKEN,
 });
 
 async function generateContentLinks() {
-    // Fetch all pages along with their linked sections and content cards in one call
-    const response = await client.getEntries({
+    // Fetch the space and environment
+    const space = await client.getSpace(process.env.CONTENTFUL_SPACE_ID);
+    const environment = await space.getEnvironment('master');
+
+    // Fetch all pages
+    const entries = await environment.getEntries({
         content_type: 'page',
         include: 3, // Adjust the level of depth if needed (3 levels deep)
     });
 
     const contentLinks = {};
 
-    for (const page of response.items) {
-        const pageTitle = page.fields.title.replace(/\s+/g, '');
+    for (const page of entries.items) {
+        const pageTitle = page.fields.title['en-US'].replace(/\s+/g, '');
         const sections = [];
 
-        for (const sectionRef of page.fields.sections) {
-            const section = response.includes.Entry.find(
-                (entry) => entry.sys.id === sectionRef.sys.id
-            );
+        for (const sectionRef of page.fields.sections['en-US']) {
+            // Fetch the section entry explicitly
+            const section = await environment.getEntry(sectionRef.sys.id);
             const contentCards = [];
 
-            for (const contentRef of section.fields.content) {
-                const content = response.includes.Entry.find(
-                    (entry) => entry.sys.id === contentRef.sys.id
-                );
+            for (const contentRef of section.fields.content['en-US']) {
+                // Fetch the content entry explicitly
+                const content = await environment.getEntry(contentRef.sys.id);
                 contentCards.push({
-                    title: content.fields.title,
-                    body: content.fields.body,
+                    title: content.fields.title['en-US'],
+                    body: content.fields.body['en-US'],
                     ...(content.fields.examples &&
-                        content.fields.examples.length > 0 && {examples: content.fields.examples}),
+                        content.fields.examples['en-US'].length > 0 && {examples: content.fields.examples['en-US']}),
                     ...(content.fields.links &&
-                        content.fields.links.length > 0 && {links: content.fields.links}),
+                        content.fields.links['en-US'].length > 0 && {links: content.fields.links['en-US']}),
                 });
             }
 
             sections.push({
-                title: section.fields.title,
+                title: section.fields.title['en-US'],
                 content: contentCards,
             });
         }
@@ -68,4 +69,4 @@ async function generateContentLinks() {
 }
 
 // Run the script
-generateContentLinks()
+generateContentLinks().catch(console.error);

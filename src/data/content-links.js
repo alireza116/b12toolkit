@@ -3,7 +3,7 @@ export const aiRisks = [
     "title": "Here you are going to take a first look at the risks for each AI coaching task.",
     "content": [
       {
-        "title": "With your stakeholders, discuss what can go wrong in each coaching task.",
+        "title": "With your stakeholders, discuss risks (things that can go wrong) in each coaching task.",
         "body": "Each stakeholder brings a unique perspective, often highlighting different risks in AI coaching based on their expertise and experience.",
         "examples": [
           "Students become overly dependent on advice.",
