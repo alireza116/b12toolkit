@@ -23,6 +23,7 @@ const PageContent = () => {
             flexDirection: 'column',
             alignItems: 'flex-start',
             justifyContent: 'center',
+            pt: 4,
             color: "text.primary"
         }}>
             <Typography variant={"h5"} className={"mb-4"}>
