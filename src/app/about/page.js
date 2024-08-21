@@ -13,8 +13,6 @@ const About = () => {
             <Typography variant="body1" paragraph>
                 This toolkit is created by Beyond 12. Content and Development by Alireza Karduni and Atefeh Mahdavi.
             </Typography>
-
-
         </Container>
     );
 };

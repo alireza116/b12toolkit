@@ -4,7 +4,7 @@
   "private": true,
   "scripts": {
     "dev": "next dev",
-    "prebuild": "node scripts/generate-js-contentful.mjs",
+    "prebuild": "npm run generate-js-contentful",
     "build": "next build",
     "start": "next start",
     "lint": "next lint",

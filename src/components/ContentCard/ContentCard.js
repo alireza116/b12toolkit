@@ -6,7 +6,7 @@ import LinkChips from "@/components/Chips/LinkChips";
 const ContentCard = ({title, body, examples, links}) => {
     // const theme = useTheme();
     return (
-        <div className={"w-full lg:w-1/2 pr-4 pb-4"}>
+        <div>
             <MuiCard className="w-full h-full shadow-none p-2 pb-0"
                      sx={{backgroundColor: "background.default"}}>
                 <CardContent className="flex flex-col h-full max-h-[500px] flex-grow pb-0">

@@ -127,8 +127,8 @@ export default function RootLayout({children}) {
                                      sx={{minWidth: "fit-content", flex: 1}}/>
                         </Tabs>
                         <Box
-                            className={"pl-12 p-4 h-full w-full overflow-y-auto"}
-                            style={{backgroundColor: bgColor}} id="content-side">
+                            className={"h-full w-full overflow-y-auto"}
+                            id="content-side">
                             {children}
                         </Box>
                     </Stack>

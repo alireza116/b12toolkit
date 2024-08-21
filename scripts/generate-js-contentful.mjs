@@ -14,6 +14,7 @@ try {
 // dotenv.config();
 
 // Initialize the Contentful Delivery client
+console.log("eng variables")
 console.log(process.env.CONTENTFUL_SPACE_ID)
 console.log(process.env.CONTENTFUL_DELIVERY_ACCESS_TOKEN)
 
