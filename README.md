@@ -1,36 +1,108 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+This is a [Next.js](https://nextjs.org/) project bootstrapped
+with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
 
 ## Getting Started
 
-First, run the development server:
+To install the dependencies, run:
+
+```bash
+npm install
+```
+
+To run the app in development mode, run:
 
 ```bash
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+To build the app run:
 
-You can start editing the page by modifying `app/page.js`. The page auto-updates as you edit the file.
+```bash 
+npm run build
+``` 
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+The **pages** are set up as static pages, and can be found under the app folder.
 
-## Learn More
+The **components** are in the components folder.
 
-To learn more about Next.js, take a look at the following resources:
+The **data** is in the data folder.
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+The **MAIN** component that gets the toolkit data and renders each page is:
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+```
+src/components/PageContentSections.js
+``` 
 
-## Deploy on Vercel
+The dataset for this component is under:
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+``` 
+src/data/content-links.js
+``` 
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+The data structure in the file consists of several variables, each representing a page. Each page is structured as
+follows:
+
+- **Page**: A list of sections.
+    - **Section**: Each section contains:
+        - **Title**: The title of the section.
+        - **Content**: A list of content items displayed as cards.
+            - **Content Item**: Each content item includes:
+                - **Title**: The title of the content item.
+                - **Body**: The main text of the content item.
+                - **Examples** (optional): A list of example strings.
+                - **Links** (optional): A list of link strings.
+
+Example:
+
+```
+const pageName: Array<Sections> =  [
+    {
+      title: 'Section Title',
+      content: [
+        {
+          title: 'Content Item Title',
+          body: 'Content Item Body',
+          examples: ['Example 1', 'Example 2'],
+          links: ['Link 1', 'Link 2'],
+        }, 
+        {Content card 2}, 
+        {Content card 3}, ...
+      ],
+    }, 
+    {Section 2}, 
+    {Section 3}, ...
+  ]
+```
+
+There is a scripts folder that contains different data migration scripts. To run a scripts. To generate CSVs, get the
+data to contentful, or airtable.
+
+For now, the way the contentful migration works, is that it will pull the changes and write the content-links.js file
+that this app will read from.
+
+This app uses Mobx for state management. The store is located in the **store** folder.
+
+The app uses MobX for state management. The stores are located in the `src/stores` folder. Here's a description of the
+stores and how they are set up:
+
+### Store Setup
+
+1. **RootStore**: This is the main store that combines all individual stores. It provides a single point of access to
+   all the stores in the application.
+
+2. **TaskStore**: This store manages the state related to tasks. It includes actions to add, remove, and update tasks,
+   as well as methods to load and save tasks from/to local storage.
+
+### Store Configuration
+
+- **RootStore**:
+    - Combines all individual stores.
+    - Provides context and hooks for accessing the stores in React components.
+
+- **TaskStore**:
+    - Manages a list of tasks.
+    - Provides actions to manipulate the task list.
+    - Persists tasks to local storage and retrieves them on initialization.
+    - Each Task contains a list of Risks
+    - Each Risk contains a list of actions.
+

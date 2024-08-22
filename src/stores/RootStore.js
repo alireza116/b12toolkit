@@ -1,11 +1,9 @@
 // src/stores/rootStore.js
 import {createContext, useContext} from 'react';
-import riskStore from '@/stores/RiskStore'; //
 import taskStore from '@/stores/TaskStore';
 
 class RootStore {
     constructor() {
-        this.riskStore = riskStore; // Add other stores
         this.taskStore = taskStore;
     }
 }
@@ -23,6 +21,5 @@ export const RootStoreProvider = ({children}) => {
 
 export const useRootStore = () => useContext(RootStoreContext);
 
-export const useRiskStore = () => useContext(RootStoreContext).riskStore; // Add hooks for other stores
 
 export const useTaskStore = () => useContext(RootStoreContext).taskStore; // Add hooks for other stores

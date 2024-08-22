@@ -3,8 +3,8 @@ export const aiRisks = [
     "title": "Here you are going to take a first look at the risks for each AI coaching task.",
     "content": [
       {
-        "title": "With your stakeholders, discuss what can go wrong in each coaching task.",
-        "body": "Each stakeholder brings a unique perspective, often highlighting different risks in AI coaching based on their expertise and experience.",
+        "title": "With your stakeholders, discuss risks (things that can go wrong) in each coaching task.",
+        "body": "What are the risks when a student is getting advice from a (human) coach? A good starting point is to list risks inherent within these coaching tasks in general. Each stakeholder brings a unique perspective, often highlighting different risks in coaching based on their expertise and experience. ",
         "examples": [
           "Students become overly dependent on advice.",
           "Coach can't handle emergency situations properly.",
@@ -19,13 +19,13 @@ export const aiRisks = [
         "title": "Consider how diverse student experiences might interact with standard coaching processes.",
         "body": "Different student backgrounds and circumstances can lead to unique risks in AI coaching. By considering diverse student experiences, we can uncover potential issues that might not be apparent when thinking about a 'typical' student. This approach helps identify risks that could disproportionately affect certain groups or arise in specific situations.",
         "examples": [
-          "International students might misinterpret culturally-specific advice.",
           "Students with disabilities could face accessibility barriers in the coaching interface.",
           "First-generation students could receive advice that assumes prior family experience with higher education.",
           "Working students might struggle with time management advice that assumes a traditional schedule.",
           "Advice might not consider the resource constraints faced by students from various economic backgrounds.",
-          "Non-native speakers may misunderstand nuanced language in coaching feedback.",
-          "Students with mental health issues might receive inappropriately generalized wellness advice."
+          "Students with mental health issues might receive inappropriately generalized wellness advice.",
+          "International students might interpret advice differently based on their culture or background.",
+          " Non-native speakers may have a different understanding of nuanced language such as adverbs, metaphors, and analogies in coaching feedback."
         ]
       }
     ]
@@ -64,12 +64,12 @@ export const aiRisks = [
         "title": "List risks that stem from common limitations of the AI model that could affect each task.",
         "body": "Even advanced AI systems operate within boundaries defined by their training and design. By recognizing these common limitations and issues early, we can design safeguards, set realistic expectations, and educate users.",
         "examples": [
-          "Advice may become outdated without regular system updates.",
-          "Coaching responses reflecting biases present in the original training data. Include test cases to test for social bias.",
           "Difficulty detecting emotional or non-verbal cues.",
-          "Potential vulnerability of students' data privacy.",
           "Failure to correctly recognize situations requiring human intervention.",
-          "Response accuracy (hallucinations)."
+          "Response accuracy (hallucinations).",
+          "Old trained data without access to update information might provide outdated information.",
+          "Bias in data used to trained AI models can be reflected in coach responses for example, social bias and gender.",
+          "Bot unintentionally leaking sensitive information about other students (data privacy)"
         ],
         "links": [
           "https://airc.nist.gov/docs/NIST.AI.600-1.GenAI-Profile.ipd.pdf#page=8.63",
@@ -254,7 +254,7 @@ export const aiRisks = [
 
 export const foundations = [
   {
-    "title": "Let's start by mapping out your AI coach responsibilities and learn about the relevant guidelines.",
+    "title": "Let's start by listing your AI coach responsibilities (tasks) and learn about the relevant guidelines.",
     "content": [
       {
         "title": "List all the tasks that you expect the AI coach to offer.",
@@ -281,7 +281,7 @@ export const foundations = [
     ]
   },
   {
-    "title": "Gather your stakeholders to go through the next steps with you. Here are some suggestions:",
+    "title": "Work with your stakeholders to go through the next steps with you. Here are some suggestions:",
     "content": [
       {
         "title": "AI Developers",
@@ -317,7 +317,13 @@ export const onboarding = [
     "content": [
       {
         "title": "Consider the varying degrees of anthropomorphism, from minimal human-like attributes to highly realistic human characteristics, when designing the AI coach.",
-        "body": "Different degrees of anthropomorphism in designing an AI coach can affect student engagement, and trust.",
+        "body": "Different degrees of anthropomorphism in designing an AI coach can affect student engagement, and trust. Also, anthropomorphic bots, if not transparent, might create an illusion of real human.",
+        "examples": [
+          "A direct and to the point bot, which provides factual feedback, in a straightforward manner without emotional nuance",
+          "A friendly but professional bot, that uses basic empathy in responses with some informal language that clearly declares itself as a chatbot",
+          "A bot that uses rich emotional language, humor, and personal anecdotes and that can adapt its tone to match user's mood.",
+          "A bot that does not clearly distinguish itself as an AI and discusses past memories while discussing doing work together."
+        ],
         "links": [
           "https://storage.googleapis.com/deepmind-media/DeepMind.com/Blog/ethics-of-advanced-ai-assistants/the-ethics-of-advanced-ai-assistants-2024-i.pdf#page=99.274"
         ]
@@ -363,11 +369,16 @@ export const onboarding = [
     "content": [
       {
         "title": "Consider what tasks need ongoing repeated interactions, what data is needed, and the security and privacy of those needed data.",
-        "body": "Trust is built over time. Effective coaching requires identifying specific tasks that benefit from ongoing, repeated interactions. Develop a consistent follow-up schedule to ensure regular interactions with students."
+        "body": "Trust is built over time. Often, effective coaching requires identifying specific tasks that benefit from ongoing, repeated interactions. You might consider developing a consistent follow-up schedule to ensure regular interactions with students. "
       },
       {
-        "title": "Often, to provide a repeated and consistent experience, data from student-AI interactions need to be saved and referred to. Be transparent about what data is being saved, when it is being saved, and how it is used.",
-        "body": "Transparency and user agency are essential to responsible AI practices."
+        "title": "Be transparent when data from student-AI interaction is being saved and used",
+        "body": "Transparency and user agency are essential to responsible AI practices. A transparent bot that provides users with enough agency can build appropriate trust towards the coaching task.",
+        "examples": [
+          "A bot that informs the student when their data is being saved.",
+          "A bot that prompts the student, asking permission to save data.",
+          "A link to a space where all saved data are visible to the student, and can readily be deleted and updated."
+        ]
       },
       {
         "title": "Provide necessary assurances to students through education, interface, or explanations that saved data is secure.",
@@ -507,8 +518,17 @@ export const studentCoach = [
         ]
       },
       {
-        "title": "Create a range of AI communication styles for different coaching contexts, while allowing students to customize their preferences.",
-        "body": "The most effective tone for AI coaching may vary based on the subject or task."
+        "title": "Consider creating a range of AI communication styles for different coaching contexts, while allowing students to customize their preferences.",
+        "body": "The most effective tone for AI coaching may vary based on the subject or task. Also, some tones such as humor might be inappropriate for some people or tasks.",
+        "examples": [
+          "A list allowing students to choose their communication style",
+          "Referring to coaching best practices to automatically adopt a tone for a specific task.",
+          "A bot that might simulate empathetic responses towards students."
+        ],
+        "links": [
+          "https://ieeexplore.ieee.org/abstract/document/8925498?casa_token=QFjki4ZMhsEAAAAA:y2gcRUVfhw7GV2qv0nFegbPq7JSQpbjdegkr5HAulC-GFUbWTSYP7-EcuwN0IgQgxfZVm7YPCA",
+          "https://dl.acm.org/doi/abs/10.1145/3375959.3375973"
+        ]
       }
     ]
   },

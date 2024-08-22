@@ -1,18 +1,10 @@
 'use client'
 import {Button, Container, Typography} from "@mui/material";
-import {useTheme} from "@mui/material/styles";
-import {useEffect, useState} from "react";
 import {useTour} from '@reactour/tour'
 
 const PageContent = () => {
-    const theme = useTheme();
     const {setIsOpen} = useTour()
-    const [isMounted, setIsMounted] = useState(false);
-
-    useEffect(() => {
-        setIsMounted(true);
-    }, []);
-
+    
     const handleStartTour = () => {
         setIsOpen(true);
     };

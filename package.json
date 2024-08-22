@@ -8,6 +8,7 @@
     "build": "next build",
     "start": "next start",
     "lint": "next lint",
+    "generate-markdown": "node scripts/js-to-markdown.mjs",
     "generate-js-airtable": "node scripts/generate-js-airtable.mjs",
     "generate-csvs": "node scripts/generate-csvs.mjs",
     "generate-js": "node scripts/generate-js.mjs",

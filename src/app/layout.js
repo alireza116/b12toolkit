@@ -18,8 +18,10 @@ import {useTheme} from "@mui/material/styles";
 import PropTypes from "prop-types";
 import NavBar from "@/components/NavBar/NavBar";
 
+// Load the Inter font with Latin subset
 const inter = Inter({subsets: ["latin"]});
 
+// Component for rendering a tab that acts as a link
 function LinkTab(props) {
     return (
         <Tab
@@ -30,10 +32,12 @@ function LinkTab(props) {
     );
 }
 
+// Define prop types for LinkTab component
 LinkTab.propTypes = {
     selected: PropTypes.bool,
 };
 
+// Function to generate accessibility props for tabs
 function a11yProps(index) {
     return {
         id: `simple-tab-${index}`,
@@ -41,12 +45,14 @@ function a11yProps(index) {
     };
 }
 
+// Root layout component for the application
 export default function RootLayout({children}) {
-    const pathname = usePathname();
-    const [value, setValue] = useState(0);
-    const navBarRef = useRef(null);
-    const [navBarHeight, setNavBarHeight] = useState(0);
+    const pathname = usePathname(); // Get the current path
+    const [value, setValue] = useState(0); // State to manage the selected tab
+    const navBarRef = useRef(null); // Ref to store the NavBar element
+    const [navBarHeight, setNavBarHeight] = useState(0); // State to store the height of the NavBar
 
+    // Effect to handle resizing and setting the NavBar height
     useEffect(() => {
         const handleResize = () => {
             if (navBarRef.current) {
@@ -69,7 +75,7 @@ export default function RootLayout({children}) {
     // Mapping routes to tab index
     const tabRoutes = ['/', '/foundations', '/airisks', '/studentcoach', '/interactions', '/reassessment'];
 
-    // Sync tab value with route
+    // Effect to sync tab value with the current route
     useEffect(() => {
         const currentTabIndex = tabRoutes.indexOf(pathname);
         if (currentTabIndex !== -1) {
@@ -77,38 +83,41 @@ export default function RootLayout({children}) {
         }
     }, [pathname]);
 
-    // handles tab value change
+    // Handle tab value change
     const handleChange = (event, newValue) => {
         setValue(newValue);
     };
 
-    const theme = useTheme();
-    const bgColor = theme.palette.background.default;
-    const borderColor = theme.palette.grey;
-    const tabHeight = 70;
+    const theme = useTheme(); // Get the current theme
+    const bgColor = theme.palette.background.default; // Background color from theme
+    const borderColor = theme.palette.grey; // Border color from theme
+    const tabHeight = 70; // Height of the tabs
 
     // Responsive checks
-    const isMdOrLarger = useMediaQuery(theme.breakpoints.up('md'));
-    const taskEditorWidth = isMdOrLarger ? '25%' : '0'; // 1/6 when md or larger, hidden when smaller
-    const contentWidth = isMdOrLarger ? "75%" : "100%";
+    const isMdOrLarger = useMediaQuery(theme.breakpoints.up('md')); // Check if the screen size is medium or larger
+    const taskEditorWidth = isMdOrLarger ? '25%' : '0'; // Width of the task editor based on screen size
+    const contentWidth = isMdOrLarger ? "75%" : "100%"; // Width of the content area based on screen size
 
     return (
         <html lang="en">
         <body className={inter.className}>
         <AppRoot>
             <Stack direction='column' sx={{height: '100vh', backgroundColor: "background.paper"}}>
+                {/* Navigation bar */}
                 <NavBar ref={navBarRef}/>
                 <main style={{
                     display: "flex",
                     width: '100%',
                     height: `calc(100vh - ${navBarHeight}px)`,
                 }}>
+                    {/* Main content area */}
                     <Stack sx={{backgroundColor: bgColor, width: contentWidth}}>
                         <Tabs id={"content-tabs"} value={value} onChange={handleChange} aria-label="content tabs"
                               role="navigation"
                               className={"border-b-2"}
                               variant="scrollable"
                               allowScrollButtonsMobile fullWidth>
+                            {/* Define each tab with its respective icon and label */}
                             <LinkTab href={"/"} icon={<StartIcon/>} className={"start-here-tab"} iconPosition="start"
                                      label="Start Here" {...a11yProps(0)} sx={{minWidth: "fit-content", flex: 1}}/>
                             <LinkTab href={"/foundations"} icon={<PriorityHighIcon/>} className={"foundations-tab"}
@@ -129,6 +138,7 @@ export default function RootLayout({children}) {
                         <Box
                             className={"h-full w-full overflow-y-auto"}
                             id="content-side">
+                            {/* Render the children components */}
                             {children}
                         </Box>
                     </Stack>
@@ -137,6 +147,7 @@ export default function RootLayout({children}) {
                             borderColor: borderColor,
                             width: taskEditorWidth
                         }}>
+                            {/* Task editor component */}
                             <TaskEditor tabHeight={tabHeight}/>
                         </Box>
                     )}

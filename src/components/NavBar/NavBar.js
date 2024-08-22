@@ -8,8 +8,8 @@ const NavBar = React.forwardRef((props, ref) => {
     return (
         <AppBar ref={ref} color="default" position="sticky" className="shadow-none">
             <Toolbar>
-                <Typography variant='h6' component='div' sx={{flexGrow: 1}}>
-                    Responsible AI Coach Development Toolkit
+                <Typography variant='body1' component='div' sx={{flexGrow: 1}}>
+                    Responsible AI Toolkit for student coaching
                 </Typography>
                 <Link href="/" passHref>
                     <Button color="inherit">
