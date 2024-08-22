@@ -21,22 +21,22 @@ To build the app run:
 npm run build
 ``` 
 
-The **pages** are set up as static pages, and can be found under the app folder.
+The **pages** are set up as static pages, and can be found under the `src/app` folder.
 
-The **components** are in the components folder.
+The **components** are in the `src/components` folder.
 
-The **data** is in the data folder.
+The **data** is in the `src/data` folder.
+
+The dataset for this toolkit is under:
+
+``` 
+src/data/content-links.js
+``` 
 
 The **MAIN** component that gets the toolkit data and renders each page is:
 
 ```
 src/components/PageContentSections.js
-``` 
-
-The dataset for this component is under:
-
-``` 
-src/data/content-links.js
 ``` 
 
 The data structure in the file consists of several variables, each representing a page. Each page is structured as
@@ -74,13 +74,11 @@ const pageName: Array<Sections> =  [
   ]
 ```
 
-There is a scripts folder that contains different data migration scripts. To run a scripts. To generate CSVs, get the
+There is a `/scripts` folder that contains different data migration scripts. To run a scripts. To generate CSVs, get the
 data to contentful, or airtable.
 
 For now, the way the contentful migration works, is that it will pull the changes and write the content-links.js file
 that this app will read from.
-
-This app uses Mobx for state management. The store is located in the **store** folder.
 
 The app uses MobX for state management. The stores are located in the `src/stores` folder. Here's a description of the
 stores and how they are set up:
