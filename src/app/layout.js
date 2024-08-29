@@ -94,28 +94,29 @@ export default function RootLayout({children}) {
     const tabHeight = 70; // Height of the tabs
 
     // Responsive checks
-    const isMdOrLarger = useMediaQuery(theme.breakpoints.up('md')); // Check if the screen size is medium or larger
-    const taskEditorWidth = isMdOrLarger ? '25%' : '0'; // Width of the task editor based on screen size
-    const contentWidth = isMdOrLarger ? "75%" : "100%"; // Width of the content area based on screen size
+    const isMdOrLarger = useMediaQuery(theme.breakpoints.up('lg')); // Check if the screen size is medium or larger
+    const taskEditorWidth = isMdOrLarger ? '400px' : '0'; // Width of the task editor based on screen size
 
     return (
         <html lang="en">
         <body className={inter.className}>
         <AppRoot>
-            <Stack direction='column' sx={{height: '100vh', backgroundColor: "background.paper"}}>
+            <Stack direction='column' sx={{height: '100%', backgroundColor: "background.paper"}}>
                 {/* Navigation bar */}
                 <NavBar ref={navBarRef}/>
                 <main style={{
                     display: "flex",
                     width: '100%',
-                    height: `calc(100vh - ${navBarHeight}px)`,
+                    overflow: 'hidden',
+                    flexGrow: 1
                 }}>
                     {/* Main content area */}
-                    <Stack sx={{backgroundColor: bgColor, width: contentWidth}}>
+                    <Stack sx={{backgroundColor: bgColor, flexGrow: 1, width: "100%"}}>
                         <Tabs id={"content-tabs"} value={value} onChange={handleChange} aria-label="content tabs"
                               role="navigation"
                               className={"border-b-2"}
                               variant="scrollable"
+                              sx={{flexShrink: 0}}
                               allowScrollButtonsMobile fullWidth>
                             {/* Define each tab with its respective icon and label */}
                             <LinkTab href={"/"} icon={<StartIcon/>} className={"start-here-tab"} iconPosition="start"
@@ -136,8 +137,10 @@ export default function RootLayout({children}) {
                                      sx={{minWidth: "fit-content", flex: 1}}/>
                         </Tabs>
                         <Box
-                            className={"h-full w-full overflow-y-auto"}
+                            sx={{width: "100%", overflowY: "auto", flexGrow: 1}}
+                            className={"w-full overflow-y-auto"}
                             id="content-side">
+
                             {/* Render the children components */}
                             {children}
                         </Box>
@@ -145,7 +148,8 @@ export default function RootLayout({children}) {
                     {isMdOrLarger && (
                         <Box className={`border-l-2`} sx={{
                             borderColor: borderColor,
-                            width: taskEditorWidth
+                            width: taskEditorWidth,
+                            flexShrink: 0
                         }}>
                             {/* Task editor component */}
                             <TaskEditor tabHeight={tabHeight}/>

@@ -12,7 +12,6 @@ class TaskStore {
     // Constructor to initialize the store and make it observable
     constructor() {
         makeAutoObservable(this);
-
     }
 
     // Method to load sample tasks into the store
