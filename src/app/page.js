@@ -4,7 +4,7 @@ import {useTour} from '@reactour/tour'
 
 const PageContent = () => {
     const {setIsOpen} = useTour()
-    
+
     const handleStartTour = () => {
         setIsOpen(true);
     };
@@ -21,10 +21,10 @@ const PageContent = () => {
             <Typography variant={"h5"} className={"mb-4"}>
                 Hi!
             </Typography>
-            <Typography variant={"h5"} className={"mb-4"}>This is a toolkit to help develop your AI coach/advisors
-                for students more ethically and responsibly. It is designed as a companion as you develop your chatbot,
-                or you decide whether to adopt one, for you to
-                identify what actions you can take to develop your AI coach.
+            <Typography variant={"h5"} className={"mb-4"}>This is a toolkit to help you consider responsible and ethical
+                principles of using or developing generative AI tools for student coaching and advising. It is designed
+                as a companion for your team to
+                identify what actions you can take to prevent and mitigate risks inherent in such tools.
             </Typography>
             <Typography variant={"h5"}> Click below for a tour on how this toolkit will help you </Typography>
             <Button variant="contained" color="neutral" onClick={handleStartTour} sx={{marginTop: 2}}>

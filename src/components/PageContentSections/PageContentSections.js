@@ -10,7 +10,7 @@ const PageDataSections = ({pageData}) => {
                 <Box
                     key={index}
                     // Apply bottom border to all sections except the last one
-                    className={`${index + 1 < pageData.length ? "border-b-2 border-gray-200" : "border-0"} pb-1 md:pb-4 pt-3 md:pt-4`}
+                    className={`${index + 1 < pageData.length ? "border-b-2 border-gray-200" : "border-0"} pb-2 md:pb-6 pt-3 md:pt-4 mb-6`}
                     sx={{color: "text.primary"}}
                 >
                     {/* Section title */}
